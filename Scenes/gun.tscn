@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ckm40o382dx31"]
+[gd_scene load_steps=10 format=3 uid="uid://ckm40o382dx31"]
 
 [ext_resource type="Script" path="res://Scenes/gun.gd" id="1_h66fy"]
 [ext_resource type="Texture2D" uid="uid://ydk17talfnvc" path="res://Assets/Normal Portal.png" id="2_mhy8x"]
@@ -23,12 +23,6 @@ animations = [{
 "name": &"idle",
 "speed": 5.0
 }]
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a5hos"]
-particle_flag_disable_z = true
-gravity = Vector3(0, 98, 0)
-scale_min = 2.0
-scale_max = 2.0
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1hnr2"]
 particle_flag_align_y = true
@@ -71,14 +65,6 @@ position = Vector2(5.36254e-13, -963.872)
 rotation = -1.5708
 scale = Vector2(10.634, 1.25)
 texture = ExtResource("2_vwx8t")
-
-[node name="GPUParticles2D2" type="GPUParticles2D" parent="AnimatedSprite2D/Sprite2D"]
-self_modulate = Color(5, 5, 5, 1)
-position = Vector2(61.1551, 0.00188333)
-scale = Vector2(1, 1)
-amount = 15
-process_material = SubResource("ParticleProcessMaterial_a5hos")
-lifetime = 2.2
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="AnimatedSprite2D/Sprite2D"]
 self_modulate = Color(3, 3, 3, 1)
