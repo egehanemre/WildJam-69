@@ -1,24 +1,22 @@
 [gd_scene load_steps=8 format=3 uid="uid://ckm40o382dx31"]
 
 [ext_resource type="Script" path="res://Scenes/gun.gd" id="1_h66fy"]
+[ext_resource type="Texture2D" uid="uid://ydk17talfnvc" path="res://Assets/Normal Portal.png" id="2_mhy8x"]
 [ext_resource type="Texture2D" uid="uid://diwe4codv8lbw" path="res://Assets/64.png" id="2_vwx8t"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yv6w7"]
-load_path = "res://.godot/imported/Normal Portal.png-8f662f81e78c1f42bdf71c2a597004aa.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xxc8m"]
-atlas = SubResource("CompressedTexture2D_yv6w7")
-region = Rect2(1701, 0, 189, 90)
+[sub_resource type="AtlasTexture" id="AtlasTexture_bl72k"]
+atlas = ExtResource("2_mhy8x")
+region = Rect2(4347, 0, 189, 90)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_31803"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xxc8m")
+"texture": SubResource("AtlasTexture_bl72k")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 6.0
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o1bqc"]
@@ -35,7 +33,6 @@ position = Vector2(0, -8)
 scale = Vector2(0.172222, 0.172222)
 sprite_frames = SubResource("SpriteFrames_31803")
 animation = &"idle"
-frame_progress = 0.858882
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D"]
 visible = false
