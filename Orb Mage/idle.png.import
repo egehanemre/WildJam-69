@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsqxsx217bhxh"
-path="res://.godot/imported/attack .png-34b9bac6f50dcfb47a6bccb16b6b016e.ctex"
+uid="uid://blvhdla05rsu8"
+path="res://.godot/imported/idle.png-3711821023046032206e2704c2bf53bd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scripts/Orb Mage/attack .png"
-dest_files=["res://.godot/imported/attack .png-34b9bac6f50dcfb47a6bccb16b6b016e.ctex"]
+source_file="res://Orb Mage/idle.png"
+dest_files=["res://.godot/imported/idle.png-3711821023046032206e2704c2bf53bd.ctex"]
 
 [params]
 

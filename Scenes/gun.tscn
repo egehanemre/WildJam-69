@@ -1,34 +1,56 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckm40o382dx31"]
+[gd_scene load_steps=8 format=3 uid="uid://ckm40o382dx31"]
 
-[ext_resource type="Texture2D" uid="uid://mgb4k4i74e4u" path="res://Assets/idle 112x26.png" id="1_fim8k"]
 [ext_resource type="Script" path="res://Scenes/gun.gd" id="1_h66fy"]
+[ext_resource type="Texture2D" uid="uid://diwe4codv8lbw" path="res://Assets/64.png" id="2_vwx8t"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qrwgd"]
-atlas = ExtResource("1_fim8k")
-region = Rect2(0, 0, 35, 26)
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yv6w7"]
+load_path = "res://.godot/imported/Normal Portal.png-8f662f81e78c1f42bdf71c2a597004aa.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxc8m"]
+atlas = SubResource("CompressedTexture2D_yv6w7")
+region = Rect2(1701, 0, 189, 90)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_31803"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qrwgd")
+"texture": SubResource("AtlasTexture_xxc8m")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 6.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1bqc"]
+size = Vector2(159.512, 23.9355)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_na313"]
-size = Vector2(20, 9)
+size = Vector2(32, 9)
 
 [node name="Gun" type="CharacterBody2D"]
 script = ExtResource("1_h66fy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -13)
+position = Vector2(0, -8)
+scale = Vector2(0.172222, 0.172222)
 sprite_frames = SubResource("SpriteFrames_31803")
 animation = &"idle"
+frame_progress = 0.858882
+
+[node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D"]
+visible = false
+position = Vector2(5.36254e-13, -963.872)
+rotation = -1.5708
+scale = Vector2(10.634, 1.25)
+texture = ExtResource("2_vwx8t")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="AnimatedSprite2D/Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Sprite2D/StaticBody2D"]
+position = Vector2(-2.8689, 1.96775)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_o1bqc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5.5)
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_na313")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brbvaphmc4aj1"
-path="res://.godot/imported/Sweep Attack with VFX.png-cba0443972e91c6b42b5c5b73f2370e6.ctex"
+uid="uid://bsqxsx217bhxh"
+path="res://.godot/imported/attack .png-37dc15bfe6735febaab2c9984eef9793.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Orb Mage/Sweep Attack with VFX.png"
-dest_files=["res://.godot/imported/Sweep Attack with VFX.png-cba0443972e91c6b42b5c5b73f2370e6.ctex"]
+source_file="res://Orb Mage/attack .png"
+dest_files=["res://.godot/imported/attack .png-37dc15bfe6735febaab2c9984eef9793.ctex"]
 
 [params]
 

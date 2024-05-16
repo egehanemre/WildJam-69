@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc5qdm6mg5ri2"
-path="res://.godot/imported/idle.png-6e4b4a522be34793c98b6762a5fca23d.ctex"
+uid="uid://xvgtmhaf8oun"
+path="res://.godot/imported/VFX for Sweep.png-2b3ee7bfef5ce8388c9cb64b10c149b7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Orb Mage/idle.png"
-dest_files=["res://.godot/imported/idle.png-6e4b4a522be34793c98b6762a5fca23d.ctex"]
+source_file="res://Orb Mage/VFX for Sweep.png"
+dest_files=["res://.godot/imported/VFX for Sweep.png-2b3ee7bfef5ce8388c9cb64b10c149b7.ctex"]
 
 [params]
 

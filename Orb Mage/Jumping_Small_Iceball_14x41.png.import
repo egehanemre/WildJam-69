@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjsye2qe6ak6p"
-path="res://.godot/imported/VFX for Sweep.png-c3259797e4b84ccdad82775f9db4401d.ctex"
+uid="uid://bapl2ylcwxduc"
+path="res://.godot/imported/Jumping_Small_Iceball_14x41.png-aeded4763a2f4673735fdf7cc8e36e54.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Orb Mage/VFX for Sweep.png"
-dest_files=["res://.godot/imported/VFX for Sweep.png-c3259797e4b84ccdad82775f9db4401d.ctex"]
+source_file="res://Orb Mage/Jumping_Small_Iceball_14x41.png"
+dest_files=["res://.godot/imported/Jumping_Small_Iceball_14x41.png-aeded4763a2f4673735fdf7cc8e36e54.ctex"]
 
 [params]
 

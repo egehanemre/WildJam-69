@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0vo87n5ojboq"
-path="res://.godot/imported/attack vfx .png-0a29bd84321c601f583134867f18e421.ctex"
+uid="uid://cn7q28kr1l5x6"
+path="res://.godot/imported/death.png-ee411215d7e78340ba56802e35c212fe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Orb Mage/attack vfx .png"
-dest_files=["res://.godot/imported/attack vfx .png-0a29bd84321c601f583134867f18e421.ctex"]
+source_file="res://Orb Mage/death.png"
+dest_files=["res://.godot/imported/death.png-ee411215d7e78340ba56802e35c212fe.ctex"]
 
 [params]
 

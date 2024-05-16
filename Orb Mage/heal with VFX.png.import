@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cn7q28kr1l5x6"
-path="res://.godot/imported/death.png-8258fc3425f05a80837b5dd5f66d0df2.ctex"
+uid="uid://c2p0c24283ibk"
+path="res://.godot/imported/heal with VFX.png-76e3bbe1c69d1fd23906c4b72f288f1d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scripts/Orb Mage/death.png"
-dest_files=["res://.godot/imported/death.png-8258fc3425f05a80837b5dd5f66d0df2.ctex"]
+source_file="res://Orb Mage/heal with VFX.png"
+dest_files=["res://.godot/imported/heal with VFX.png-76e3bbe1c69d1fd23906c4b72f288f1d.ctex"]
 
 [params]
 

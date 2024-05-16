@@ -1,16 +1,16 @@
 extends CharacterBody2D
 
+signal currentAreaSignal(value)
+
 const SPEED : int = 100
 const GRAVITY : int = 900
 const JUMP_FORCE : int = 400
 
-var currentArea : int = 0
+@export var currentArea : int = 0
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 
 func _physics_process(delta):
-	
-	print(currentArea)
 	
 	var direction = Input.get_axis("move_left","move_right")
 		
@@ -39,20 +39,26 @@ func _physics_process(delta):
 
 func _on_area_1_body_entered(body):
 		currentArea = 1
+		emit_signal("currentAreaSignal",currentArea)
 
 func _on_area_2_body_entered(body):
 		currentArea = 2
+		emit_signal("currentAreaSignal",currentArea)
 	
 func _on_area_3_body_entered(body):
 		currentArea = 3	
+		emit_signal("currentAreaSignal",currentArea)
 	
 	
 func _on_area_3_body_exited(body):
 	currentArea = 0
+	emit_signal("currentAreaSignal",currentArea)
 	
 func _on_area_2_body_exited(body):
 	currentArea = 0
+	emit_signal("currentAreaSignal",currentArea)
 	
 func _on_area_1_body_exited(body):
 	currentArea = 0
+	emit_signal("currentAreaSignal",currentArea)
 

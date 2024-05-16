@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2p0c24283ibk"
-path="res://.godot/imported/heal with VFX.png-9a90c78e8da169f5e07c0c3659ccac8b.ctex"
+uid="uid://cqlwne7bjwq"
+path="res://.godot/imported/attack vfx .png-10b61622b4c6bf22d7e9df6df0be1d63.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scripts/Orb Mage/heal with VFX.png"
-dest_files=["res://.godot/imported/heal with VFX.png-9a90c78e8da169f5e07c0c3659ccac8b.ctex"]
+source_file="res://Orb Mage/attack vfx .png"
+dest_files=["res://.godot/imported/attack vfx .png-10b61622b4c6bf22d7e9df6df0be1d63.ctex"]
 
 [params]
 

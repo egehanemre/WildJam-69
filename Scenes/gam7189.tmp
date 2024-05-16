@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dlr7su2l04iey"]
+[gd_scene load_steps=16 format=3 uid="uid://dlr7su2l04iey"]
 
 [ext_resource type="Texture2D" uid="uid://o03ppjyqhh73" path="res://Assets/The Platformer v1-0 Alpha.png" id="1_p72qs"]
 [ext_resource type="PackedScene" uid="uid://ig14671lmijs" path="res://Scenes/player.tscn" id="2_rqfep"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://ckm40o382dx31" path="res://Scenes/gun.tscn" id="6_16d00"]
 [ext_resource type="Script" path="res://Scenes/Sprite2D.gd" id="7_bj22m"]
 [ext_resource type="Script" path="res://Scenes/Shields.gd" id="7_kqtkm"]
-[ext_resource type="Texture2D" uid="uid://ce6lkycbuagqm" path="res://Assets/Dimensional_Portal.png" id="8_c5ly4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0bo2n"]
 texture = ExtResource("1_p72qs")
@@ -621,10 +620,10 @@ size = Vector2(77, 110)
 size = Vector2(76, 107)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q7726"]
-size = Vector2(14, 30)
+size = Vector2(20, 198.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r20dd"]
-size = Vector2(12, 30)
+size = Vector2(20, 198)
 
 [node name="Game" type="Node2D"]
 
@@ -678,26 +677,20 @@ rotation = 3.14159
 script = ExtResource("7_kqtkm")
 
 [node name="Sprite2D" type="Sprite2D" parent="Shields"]
-position = Vector2(-496, -2)
-scale = Vector2(1.77257, 6.5617)
-texture = ExtResource("8_c5ly4")
 script = ExtResource("7_bj22m")
 
 [node name="ShieldLeft" type="StaticBody2D" parent="Shields/Sprite2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shields/Sprite2D/ShieldLeft"]
-position = Vector2(-31, -16)
+position = Vector2(-546, -106.75)
 shape = SubResource("RectangleShape2D_q7726")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Shields"]
-position = Vector2(-78.0001, -2)
-scale = Vector2(1.64, 6.56)
-texture = ExtResource("8_c5ly4")
 
 [node name="ShieldRight" type="StaticBody2D" parent="Shields/Sprite2D2"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shields/Sprite2D2/ShieldRight"]
-position = Vector2(-31, -16)
+position = Vector2(-129, -106)
 shape = SubResource("RectangleShape2D_r20dd")
 
 [connection signal="currentAreaSignal" from="Player" to="Gun" method="_on_player_current_area_signal"]
