@@ -1,5 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://dlr7su2l04iey"]
+[gd_scene load_steps=18 format=3 uid="uid://dlr7su2l04iey"]
 
+[ext_resource type="PackedScene" uid="uid://dmkj0c8f4s3nf" path="res://Scenes/background.tscn" id="1_7d0w7"]
 [ext_resource type="Texture2D" uid="uid://o03ppjyqhh73" path="res://Assets/The Platformer v1-0 Alpha.png" id="1_p72qs"]
 [ext_resource type="PackedScene" uid="uid://ig14671lmijs" path="res://Scenes/player.tscn" id="2_rqfep"]
 [ext_resource type="Script" path="res://Scenes/Area3.gd" id="3_xexkc"]
@@ -628,6 +629,18 @@ size = Vector2(12, 30)
 
 [node name="Game" type="Node2D"]
 
+[node name="solidBG" type="ColorRect" parent="."]
+offset_left = -584.0
+offset_top = -334.0
+offset_right = 14.0
+offset_bottom = 11.0
+color = Color(0.0901961, 0.0901961, 0.0666667, 1)
+
+[node name="BG" parent="." instance=ExtResource("1_7d0w7")]
+modulate = Color(1, 1, 1, 0.145098)
+position = Vector2(-230, -130)
+scale = Vector2(1.51095, 1.51095)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-288, -164)
 zoom = Vector2(2, 2)
@@ -675,9 +688,11 @@ position = Vector2(-437, -33)
 rotation = 3.14159
 
 [node name="Shields" type="Node2D" parent="."]
+self_modulate = Color(5, 5, 5, 1)
 script = ExtResource("7_kqtkm")
 
 [node name="Sprite2D" type="Sprite2D" parent="Shields"]
+self_modulate = Color(2, 2, 2, 1)
 position = Vector2(-496, -2)
 scale = Vector2(1.77257, 6.5617)
 texture = ExtResource("8_c5ly4")
@@ -690,6 +705,7 @@ position = Vector2(-31, -16)
 shape = SubResource("RectangleShape2D_q7726")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Shields"]
+self_modulate = Color(2, 2, 2, 1)
 position = Vector2(-78.0001, -2)
 scale = Vector2(1.64, 6.56)
 texture = ExtResource("8_c5ly4")

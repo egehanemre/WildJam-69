@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ckm40o382dx31"]
+[gd_scene load_steps=11 format=3 uid="uid://ckm40o382dx31"]
 
 [ext_resource type="Script" path="res://Scenes/gun.gd" id="1_h66fy"]
 [ext_resource type="Texture2D" uid="uid://ydk17talfnvc" path="res://Assets/Normal Portal.png" id="2_mhy8x"]
@@ -21,6 +21,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k1b1c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vwx8t")
+}],
+"loop": true,
+"name": &"default",
 "speed": 5.0
 }]
 
@@ -54,17 +65,18 @@ script = ExtResource("1_h66fy")
 environment = SubResource("Environment_wxdxt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(2, 2, 2, 1)
 position = Vector2(0, -8)
 scale = Vector2(0.172222, 0.172222)
 sprite_frames = SubResource("SpriteFrames_31803")
 animation = &"idle"
 
-[node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
 self_modulate = Color(3, 3, 3, 1)
 position = Vector2(5.36254e-13, -963.872)
 rotation = -1.5708
 scale = Vector2(10.634, 1.25)
-texture = ExtResource("2_vwx8t")
+sprite_frames = SubResource("SpriteFrames_k1b1c")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="AnimatedSprite2D/Sprite2D"]
 self_modulate = Color(3, 3, 3, 1)
@@ -80,7 +92,6 @@ speed_scale = 0.5
 
 [node name="Sprite2D2" type="Sprite2D" parent="AnimatedSprite2D/Sprite2D"]
 self_modulate = Color(5, 5, 5, 1)
-z_index = -1
 position = Vector2(-85.1671, -15.9391)
 rotation = -1.82795
 scale = Vector2(0.210621, 0.240259)
@@ -89,7 +100,6 @@ texture = ExtResource("2_vwx8t")
 
 [node name="Sprite2D3" type="Sprite2D" parent="AnimatedSprite2D/Sprite2D"]
 self_modulate = Color(5, 5, 5, 1)
-z_index = -1
 position = Vector2(-85.3015, 14.4819)
 rotation = -1.31382
 scale = Vector2(0.210737, 0.240231)
@@ -99,7 +109,6 @@ flip_h = true
 
 [node name="Sprite2D4" type="Sprite2D" parent="AnimatedSprite2D/Sprite2D"]
 self_modulate = Color(5, 5, 5, 1)
-z_index = -1
 position = Vector2(-85.7263, -0.00264003)
 rotation = 4.96927e-05
 scale = Vector2(0.0586741, 0.262807)
