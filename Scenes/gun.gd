@@ -16,11 +16,11 @@ func _physics_process(delta):
 				position.x -= 1	
 		
 		if Input.is_action_pressed("use_laser"):
-			$AnimatedSprite2D/Sprite2D.visible = true
-			$AnimatedSprite2D/Sprite2D/StaticBody2D/CollisionShape2D.disabled = false
+			$Sprite2D.visible = true
+			$Sprite2D/StaticBody2D/CollisionShape2D.disabled = false
 		else:
-			$AnimatedSprite2D/Sprite2D.visible = false
-			$AnimatedSprite2D/Sprite2D/StaticBody2D/CollisionShape2D.disabled = true
+			$Sprite2D.visible = false
+			$Sprite2D/StaticBody2D/CollisionShape2D.disabled = true
 		
 	move_and_slide()
 	
