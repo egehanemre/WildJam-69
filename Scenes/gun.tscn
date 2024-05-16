@@ -1,8 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://ckm40o382dx31"]
+[gd_scene load_steps=11 format=3 uid="uid://ckm40o382dx31"]
 
 [ext_resource type="Script" path="res://Scenes/gun.gd" id="1_h66fy"]
 [ext_resource type="Texture2D" uid="uid://ydk17talfnvc" path="res://Assets/Normal Portal.png" id="2_mhy8x"]
 [ext_resource type="Texture2D" uid="uid://diwe4codv8lbw" path="res://Assets/64.png" id="2_vwx8t"]
+
+[sub_resource type="Environment" id="Environment_wxdxt"]
+background_mode = 3
+glow_enabled = true
+glow_blend_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bl72k"]
 atlas = ExtResource("2_mhy8x")
@@ -19,6 +24,29 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a5hos"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+scale_min = 2.0
+scale_max = 2.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1hnr2"]
+particle_flag_align_y = true
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+particle_flag_damping_as_friction = true
+spread = 180.0
+flatness = 0.797
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -2.25
+linear_accel_max = 0.15
+scale_min = 2.0
+scale_max = 5.0
+turbulence_enabled = true
+turbulence_noise_strength = 9.0
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o1bqc"]
 size = Vector2(159.512, 23.9355)
 
@@ -28,6 +56,9 @@ size = Vector2(32, 9)
 [node name="Gun" type="CharacterBody2D"]
 script = ExtResource("1_h66fy")
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_wxdxt")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 scale = Vector2(0.172222, 0.172222)
@@ -35,11 +66,60 @@ sprite_frames = SubResource("SpriteFrames_31803")
 animation = &"idle"
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatedSprite2D"]
-visible = false
+self_modulate = Color(3, 3, 3, 1)
 position = Vector2(5.36254e-13, -963.872)
 rotation = -1.5708
 scale = Vector2(10.634, 1.25)
 texture = ExtResource("2_vwx8t")
+
+[node name="GPUParticles2D2" type="GPUParticles2D" parent="AnimatedSprite2D/Sprite2D"]
+self_modulate = Color(5, 5, 5, 1)
+position = Vector2(61.1551, 0.00188333)
+scale = Vector2(1, 1)
+amount = 15
+process_material = SubResource("ParticleProcessMaterial_a5hos")
+lifetime = 2.2
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="AnimatedSprite2D/Sprite2D"]
+self_modulate = Color(3, 3, 3, 1)
+position = Vector2(-81.9041, -0.00252232)
+rotation = 1.5708
+scale = Vector2(4.64517, 0.546028)
+skew = 3.02792e-05
+amount = 5
+amount_ratio = 0.5
+process_material = SubResource("ParticleProcessMaterial_1hnr2")
+lifetime = 0.1
+speed_scale = 0.5
+
+[node name="Sprite2D2" type="Sprite2D" parent="AnimatedSprite2D/Sprite2D"]
+self_modulate = Color(5, 5, 5, 1)
+z_index = -1
+position = Vector2(-85.1671, -15.9391)
+rotation = -1.82795
+scale = Vector2(0.210621, 0.240259)
+skew = -1.26115
+texture = ExtResource("2_vwx8t")
+
+[node name="Sprite2D3" type="Sprite2D" parent="AnimatedSprite2D/Sprite2D"]
+self_modulate = Color(5, 5, 5, 1)
+z_index = -1
+position = Vector2(-85.3015, 14.4819)
+rotation = -1.31382
+scale = Vector2(0.210737, 0.240231)
+skew = 1.26129
+texture = ExtResource("2_vwx8t")
+flip_h = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="AnimatedSprite2D/Sprite2D"]
+self_modulate = Color(5, 5, 5, 1)
+z_index = -1
+position = Vector2(-85.7263, -0.00264003)
+rotation = 4.96927e-05
+scale = Vector2(0.0586741, 0.262807)
+skew = -4.8995e-05
+texture = ExtResource("2_vwx8t")
+flip_h = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="AnimatedSprite2D/Sprite2D"]
 
