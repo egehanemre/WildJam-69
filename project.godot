@@ -13,11 +13,17 @@ config_version=5
 config/name="Wild_Jam"
 run/main_scene="res://Scenes/game.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
+run/max_fps=144
 config/icon="res://icon.svg"
+
+[debug]
+
+settings/stdout/print_fps=true
 
 [display]
 
 window/stretch/mode="viewport"
+window/vsync/vsync_mode=0
 
 [input]
 
@@ -36,6 +42,10 @@ use_laser={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(233, 20),"global_position":Vector2(237, 61),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
+
+[physics]
+
+common/physics_ticks_per_second=120
 
 [rendering]
 
