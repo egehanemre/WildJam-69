@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://ce6lkycbuagqm" path="res://Assets/Dimensional_Portal.png" id="8_c5ly4"]
 [ext_resource type="Texture2D" uid="uid://bnuyeu6gy6exh" path="res://Assets/image__2_-removebg-preview (1).png" id="11_cxw37"]
 [ext_resource type="Texture2D" uid="uid://b7pev3r1ti2fe" path="res://Assets/ntxt.png" id="11_h2jb4"]
+[ext_resource type="Script" path="res://Scenes/EnergySystem.gd" id="13_ri4ul"]
+[ext_resource type="PackedScene" uid="uid://bt75b57uf2hmr" path="res://ui.tscn" id="14_y3jci"]
 
 [sub_resource type="Environment" id="Environment_x1ge0"]
 background_mode = 3
@@ -780,13 +782,26 @@ position = Vector2(-412, -77)
 scale = Vector2(0.265, 0.265)
 texture = ExtResource("11_h2jb4")
 
+[node name="EnergySystem" type="Node2D" parent="."]
+script = ExtResource("13_ri4ul")
+
+[node name="UI" parent="." instance=ExtResource("14_y3jci")]
+offset_left = -568.0
+offset_top = -324.0
+offset_right = -568.0
+offset_bottom = -324.0
+
+[connection signal="currentAreaSignal" from="Player" to="Player" method="_on_current_area_signal"]
 [connection signal="currentAreaSignal" from="Player" to="Guns/Gun" method="_on_player_current_area_signal"]
 [connection signal="currentAreaSignal" from="Player" to="Guns/Gun2" method="_on_player_current_area_signal"]
 [connection signal="currentAreaSignal" from="Player" to="Shields" method="_on_player_current_area_signal"]
 [connection signal="currentAreaSignal" from="Player" to="Shields/Sprite2D" method="_on_player_current_area_signal"]
+[connection signal="currentAreaSignal" from="Player" to="EnergySystem" method="_on_player_current_area_signal"]
 [connection signal="body_entered" from="Colliders/Area3" to="Player" method="_on_area_3_body_entered"]
 [connection signal="body_exited" from="Colliders/Area3" to="Player" method="_on_area_3_body_exited"]
 [connection signal="body_entered" from="Colliders/Area2" to="Player" method="_on_area_2_body_entered"]
 [connection signal="body_exited" from="Colliders/Area2" to="Player" method="_on_area_2_body_exited"]
 [connection signal="body_entered" from="Colliders/Area1" to="Player" method="_on_area_1_body_entered"]
 [connection signal="body_exited" from="Colliders/Area1" to="Player" method="_on_area_1_body_exited"]
+[connection signal="currentLaser" from="EnergySystem" to="UI" method="_on_energy_system_current_laser"]
+[connection signal="currentShield" from="EnergySystem" to="UI" method="_on_energy_system_current_shield"]
