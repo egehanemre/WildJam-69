@@ -9,5 +9,6 @@ func _physics_process(delta):
 	else:
 		$Sprite2D.visible = false
 		$Sprite2D2.visible = false	
+		
 func _on_player_current_area_signal(value):
 	currentArea = value
