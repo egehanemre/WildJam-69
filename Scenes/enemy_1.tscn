@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4ccm0l42x77y"]
+
+[ext_resource type="Script" path="res://Scenes/enemy_1.gd" id="1_e51oe"]
+[ext_resource type="Texture2D" uid="uid://pvjdoult614n" path="res://Assets/enemy1.png" id="1_pywx1"]
+
+[node name="Enemy1" type="Node2D"]
+script = ExtResource("1_e51oe")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.02718, 2.01722)
+texture = ExtResource("1_pywx1")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
