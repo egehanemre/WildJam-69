@@ -743,6 +743,7 @@ y_sort_enabled = true
 
 [node name="SpaceShip" type="Sprite2D" parent="Ship"]
 y_sort_enabled = true
+texture_filter = 1
 position = Vector2(-319, -138)
 scale = Vector2(0.69, 0.69)
 texture = ExtResource("11_cxw37")

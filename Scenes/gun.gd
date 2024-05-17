@@ -6,10 +6,11 @@ var mousePosition
 var currentArea
 
 func _physics_process(delta):
-	var tween = get_tree().create_tween()
 	
 	var vel : Vector2 = get_global_mouse_position() 
 	if currentArea == 3:
+		var tween = get_tree().create_tween()
+		
 		if position.x < vel.x:
 				position.x += 1
 		if position.x > vel.x:	
