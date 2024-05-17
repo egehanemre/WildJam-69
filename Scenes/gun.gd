@@ -7,6 +7,7 @@ var currentArea
 
 func _physics_process(delta):
 	var tween = get_tree().create_tween()
+	tween.set_ease(Tween.EASE_OUT_IN)
 	
 	var vel : Vector2 = get_global_mouse_position() 
 	if currentArea == 3:

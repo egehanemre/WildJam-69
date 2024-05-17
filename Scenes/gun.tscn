@@ -52,7 +52,6 @@ autoplay = "Laser"
 [node name="Laser" type="MeshInstance2D" parent="."]
 self_modulate = Color(3, 1, 1, 1)
 position = Vector2(0, -152)
-scale = Vector2(1e-05, 1)
 mesh = SubResource("QuadMesh_s1241")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Laser"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dlr7su2l04iey"]
+[gd_scene load_steps=20 format=3 uid="uid://dlr7su2l04iey"]
 
 [ext_resource type="PackedScene" uid="uid://dmkj0c8f4s3nf" path="res://Scenes/background.tscn" id="1_7d0w7"]
 [ext_resource type="Texture2D" uid="uid://o03ppjyqhh73" path="res://Assets/The Platformer v1-0 Alpha.png" id="1_p72qs"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://Scenes/Sprite2D.gd" id="7_bj22m"]
 [ext_resource type="Script" path="res://Scenes/Shields.gd" id="7_kqtkm"]
 [ext_resource type="Texture2D" uid="uid://ce6lkycbuagqm" path="res://Assets/Dimensional_Portal.png" id="8_c5ly4"]
+[ext_resource type="PackedScene" uid="uid://bk1xxjdlsbpmm" path="res://addons/LaserBeam Node/LaserBeam.tscn" id="11_5sqar"]
 
 [sub_resource type="Environment" id="Environment_x1ge0"]
 background_mode = 3
@@ -18,6 +19,7 @@ glow_intensity = 1.22
 glow_strength = 0.54
 glow_blend_mode = 1
 glow_hdr_threshold = 0.0
+adjustment_enabled = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0bo2n"]
 texture = ExtResource("1_p72qs")
@@ -726,6 +728,9 @@ texture = ExtResource("8_c5ly4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shields/Sprite2D2/ShieldRight"]
 position = Vector2(-31, -16)
 shape = SubResource("RectangleShape2D_r20dd")
+
+[node name="Laser" parent="." instance=ExtResource("11_5sqar")]
+position = Vector2(-305, -194)
 
 [connection signal="currentAreaSignal" from="Player" to="Gun" method="_on_player_current_area_signal"]
 [connection signal="currentAreaSignal" from="Player" to="Gun2" method="_on_player_current_area_signal"]
