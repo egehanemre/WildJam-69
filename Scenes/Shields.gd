@@ -12,3 +12,4 @@ func _physics_process(delta):
 		
 func _on_player_current_area_signal(value):
 	currentArea = value
+
