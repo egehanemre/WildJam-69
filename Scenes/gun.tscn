@@ -1,37 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://ckm40o382dx31"]
+[gd_scene load_steps=11 format=3 uid="uid://ckm40o382dx31"]
 
 [ext_resource type="Script" path="res://Scenes/gun.gd" id="1_h66fy"]
 [ext_resource type="Texture2D" uid="uid://ydk17talfnvc" path="res://Assets/Normal Portal.png" id="2_mhy8x"]
-[ext_resource type="Texture2D" uid="uid://diwe4codv8lbw" path="res://Assets/64.png" id="2_vwx8t"]
 
 [sub_resource type="Animation" id="Animation_33oba"]
 resource_name = "Laser"
 loop_mode = 1
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale:y")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0.2, -0.25, 0, 0.25, 0, 0.3, -0.25, 0, 0.25, 0, 0.2, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5, 0.9)
-}
 
 [sub_resource type="Animation" id="Animation_k2i62"]
 length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:scale:y")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.215278, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4ba5y"]
 _data = {
@@ -39,13 +16,11 @@ _data = {
 "RESET": SubResource("Animation_k2i62")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1bqc"]
-size = Vector2(159.512, 23.9355)
+[sub_resource type="QuadMesh" id="QuadMesh_s1241"]
+size = Vector2(5, 300)
 
-[sub_resource type="Environment" id="Environment_wxdxt"]
-background_mode = 3
-glow_enabled = true
-glow_blend_mode = 1
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1bqc"]
+size = Vector2(149.844, 26.9654)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bl72k"]
 atlas = ExtResource("2_mhy8x")
@@ -62,23 +37,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1hnr2"]
-particle_flag_align_y = true
-particle_flag_rotate_y = true
-particle_flag_disable_z = true
-particle_flag_damping_as_friction = true
-spread = 180.0
-flatness = 0.797
-initial_velocity_min = 100.0
-initial_velocity_max = 100.0
-gravity = Vector3(0, 0, 0)
-linear_accel_min = -2.25
-linear_accel_max = 0.15
-scale_min = 2.0
-scale_max = 5.0
-turbulence_enabled = true
-turbulence_noise_strength = 9.0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_na313"]
 size = Vector2(32, 9)
 
@@ -91,66 +49,25 @@ libraries = {
 }
 autoplay = "Laser"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-self_modulate = Color(3, 3, 3, 1)
-position = Vector2(9.23547e-14, -165.177)
+[node name="Laser" type="MeshInstance2D" parent="."]
+self_modulate = Color(3, 1, 1, 1)
+position = Vector2(0, -152)
+scale = Vector2(1e-05, 1)
+mesh = SubResource("QuadMesh_s1241")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Laser"]
 rotation = -1.5708
-scale = Vector2(1.831, 0.215278)
-texture = ExtResource("2_vwx8t")
+scale = Vector2(1.93578, 0.2)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
-position = Vector2(-2.8689, 1.96775)
-scale = Vector2(1, 1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Laser/StaticBody2D"]
+position = Vector2(2.56585, 1.51468)
 shape = SubResource("RectangleShape2D_o1bqc")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_wxdxt")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-self_modulate = Color(2, 2, 2, 1)
 position = Vector2(0, -8)
 scale = Vector2(0.172222, 0.172222)
 sprite_frames = SubResource("SpriteFrames_31803")
 animation = &"idle"
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="AnimatedSprite2D"]
-self_modulate = Color(3, 3, 3, 1)
-position = Vector2(-4.05523e-09, -92.9039)
-rotation = 2.7176e-05
-scale = Vector2(5.80646, 5.80646)
-skew = -2.68221e-05
-amount = 5
-amount_ratio = 0.5
-process_material = SubResource("ParticleProcessMaterial_1hnr2")
-lifetime = 0.1
-speed_scale = 0.5
-
-[node name="Sprite2D2" type="Sprite2D" parent="AnimatedSprite2D"]
-self_modulate = Color(5, 5, 5, 1)
-position = Vector2(-19.9206, -58.205)
-rotation = 1.99114
-scale = Vector2(0.623948, 0.328506)
-skew = -1.0252e-05
-texture = ExtResource("2_vwx8t")
-
-[node name="Sprite2D3" type="Sprite2D" parent="AnimatedSprite2D"]
-self_modulate = Color(5, 5, 5, 1)
-position = Vector2(18.1057, -56.776)
-rotation = -1.99142
-scale = Vector2(0.623945, 0.328506)
-skew = 1.38283e-05
-texture = ExtResource("2_vwx8t")
-flip_h = true
-
-[node name="Sprite2D4" type="Sprite2D" parent="AnimatedSprite2D"]
-self_modulate = Color(5, 5, 5, 1)
-position = Vector2(-5.74513e-09, -52.2586)
-rotation = -1.57079
-scale = Vector2(0.62394, 0.328509)
-texture = ExtResource("2_vwx8t")
-flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)

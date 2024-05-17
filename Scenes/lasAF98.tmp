@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://covwci6tw2tac"]
+
+[ext_resource type="Script" path="res://Scenes/RayCast2D.gd" id="1_nclxp"]
+[ext_resource type="Script" path="res://Scenes/Area2D.gd" id="2_qyke6"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_tphjn"]
+size = Vector2(50, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_syubm"]
+size = Vector2(50, 150)
+
+[node name="Laser test" type="Node2D"]
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(348, 274)
+target_position = Vector2(320, 0)
+collide_with_areas = true
+script = ExtResource("1_nclxp")
+
+[node name="Line2D" type="Line2D" parent="RayCast2D"]
+points = PackedVector2Array(0, 0, 0, 0)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(685, 282)
+script = ExtResource("2_qyke6")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Area2D"]
+mesh = SubResource("QuadMesh_tphjn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_syubm")

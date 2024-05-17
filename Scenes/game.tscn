@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dlr7su2l04iey"]
+[gd_scene load_steps=19 format=3 uid="uid://dlr7su2l04iey"]
 
 [ext_resource type="PackedScene" uid="uid://dmkj0c8f4s3nf" path="res://Scenes/background.tscn" id="1_7d0w7"]
 [ext_resource type="Texture2D" uid="uid://o03ppjyqhh73" path="res://Assets/The Platformer v1-0 Alpha.png" id="1_p72qs"]
@@ -10,6 +10,14 @@
 [ext_resource type="Script" path="res://Scenes/Sprite2D.gd" id="7_bj22m"]
 [ext_resource type="Script" path="res://Scenes/Shields.gd" id="7_kqtkm"]
 [ext_resource type="Texture2D" uid="uid://ce6lkycbuagqm" path="res://Assets/Dimensional_Portal.png" id="8_c5ly4"]
+
+[sub_resource type="Environment" id="Environment_x1ge0"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 1.22
+glow_strength = 0.54
+glow_blend_mode = 1
+glow_hdr_threshold = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0bo2n"]
 texture = ExtResource("1_p72qs")
@@ -629,15 +637,18 @@ size = Vector2(12, 30)
 
 [node name="Game" type="Node2D"]
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_x1ge0")
+
 [node name="solidBG" type="ColorRect" parent="."]
 offset_left = -584.0
 offset_top = -334.0
 offset_right = 14.0
 offset_bottom = 11.0
-color = Color(0.0901961, 0.0901961, 0.0666667, 1)
+color = Color(0.112634, 0.0532078, 0.176094, 1)
 
 [node name="BG" parent="." instance=ExtResource("1_7d0w7")]
-modulate = Color(1, 1, 1, 0.145098)
+modulate = Color(1, 1, 1, 0.0117647)
 position = Vector2(-230, -130)
 scale = Vector2(1.51095, 1.51095)
 
@@ -654,7 +665,7 @@ layer_1/name = "ForeGround"
 layer_1/tile_data = PackedInt32Array(-393227, 65536, 2, -327691, 65536, 2, -196619, 65536, 2, -131083, 65536, 2, -458763, 65536, 2, -524299, 65536, 2, -589835, 65536, 2, -655371, 65536, 2, -262155, 65536, 2, -655372, 65536, 2, -655373, 65536, 2, -655374, 65536, 2, -655375, 65536, 2, -655376, 65536, 2, -655377, 65536, 2, -655378, 65536, 2, -655379, 65536, 2, -655380, 65536, 2, -655381, 65536, 2, -655382, 65536, 2, -655383, 65536, 2, -655384, 65536, 2, -655385, 65536, 2, -655386, 65536, 2, -655387, 65536, 2, -131098, 65536, 2, -131099, 65536, 2, -131097, 65536, 2, -131096, 65536, 2, -131095, 65536, 2, -131094, 65536, 2, -131093, 65536, 2, -131092, 65536, 2, -131091, 65536, 2, -131090, 65536, 2, -131089, 65536, 2, -131088, 65536, 2, -131087, 65536, 2, -131086, 65536, 2, -131085, 65536, 2, -131084, 65536, 2, -655388, 65536, 2, -655389, 65536, 2, -131101, 65536, 2, -131100, 65536, 2, -589853, 65536, 2, -524317, 65536, 2, -458781, 65536, 2, -589841, 65536, 2, -524305, 65536, 2, -589847, 65536, 2, -524311, 65536, 2, -458775, 65536, 2, -393239, 65536, 2, -458769, 65536, 2, -393233, 65536, 2, -131102, 65536, 2, -131103, 65536, 2, -131104, 65536, 2, -131105, 65536, 2, -196641, 65536, 2, -262177, 65536, 2, -327713, 65536, 2, -393249, 65536, 2, -458785, 65536, 2, -458784, 65536, 2, -458783, 65536, 2, -458782, 65536, 2, -720907, 65536, 2, -720925, 65536, 2, -65565, 65536, 2, -65547, 65536, 2)
 
 [node name="Player" parent="." instance=ExtResource("2_rqfep")]
-position = Vector2(-480, -68)
+position = Vector2(-234, -68)
 
 [node name="Colliders" type="Node2D" parent="."]
 
