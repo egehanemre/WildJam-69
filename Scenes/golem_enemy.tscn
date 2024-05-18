@@ -1,0 +1,153 @@
+[gd_scene load_steps=20 format=3 uid="uid://bglqykonx8wc3"]
+
+[ext_resource type="Texture2D" uid="uid://4ryfc4vlgond" path="res://Assets/Mecha-stone Golem 0.1/PNG sheet/Character_sheet.png" id="1_2w7yu"]
+[ext_resource type="Script" path="res://Scenes/golem_enemy.gd" id="1_ub6u2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4dbo"]
+atlas = ExtResource("1_2w7yu")
+region = Rect2(0, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88tvp"]
+atlas = ExtResource("1_2w7yu")
+region = Rect2(100, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgkm1"]
+atlas = ExtResource("1_2w7yu")
+region = Rect2(200, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wuiw"]
+atlas = ExtResource("1_2w7yu")
+region = Rect2(300, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgi06"]
+atlas = ExtResource("1_2w7yu")
+region = Rect2(400, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bavm8"]
+atlas = ExtResource("1_2w7yu")
+region = Rect2(500, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bsle"]
+atlas = ExtResource("1_2w7yu")
+region = Rect2(600, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nvr0"]
+atlas = ExtResource("1_2w7yu")
+region = Rect2(700, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flm35"]
+atlas = ExtResource("1_2w7yu")
+region = Rect2(800, 200, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acdkd"]
+atlas = ExtResource("1_2w7yu")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14drw"]
+atlas = ExtResource("1_2w7yu")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2x2l"]
+atlas = ExtResource("1_2w7yu")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bwja5"]
+atlas = ExtResource("1_2w7yu")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wqhvv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4dbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88tvp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgkm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wuiw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgi06")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bavm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bsle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nvr0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flm35")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acdkd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14drw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2x2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bwja5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_16msy"]
+offsets = PackedFloat32Array(0, 0.606557, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lidxr"]
+gradient = SubResource("Gradient_16msy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_m3kcc"]
+lifetime_randomness = 0.1
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 1.0
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+gravity = Vector3(0, 0, 0)
+scale_min = 3.0
+scale_max = 4.0
+color_ramp = SubResource("GradientTexture1D_lidxr")
+
+[node name="GolemEnemy" type="Node2D"]
+script = ExtResource("1_ub6u2")
+
+[node name="Golem" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(3, 3, 3, 1)
+position = Vector2(0, -9)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_wqhvv")
+animation = &"attack"
+flip_h = true
+
+[node name="Point" type="Node2D" parent="Golem"]
+position = Vector2(-44.6667, -12.6667)
+scale = Vector2(0.333333, 0.333333)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Golem/Point"]
+self_modulate = Color(2, 2, 2, 1)
+position = Vector2(38, -1)
+emitting = false
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_m3kcc")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true

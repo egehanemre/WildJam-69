@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dlr7su2l04iey"]
+[gd_scene load_steps=21 format=3 uid="uid://dlr7su2l04iey"]
 
 [ext_resource type="PackedScene" uid="uid://dmkj0c8f4s3nf" path="res://Scenes/background.tscn" id="1_7d0w7"]
 [ext_resource type="Texture2D" uid="uid://o03ppjyqhh73" path="res://Assets/The Platformer v1-0 Alpha.png" id="1_p72qs"]
@@ -10,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://bnuyeu6gy6exh" path="res://Assets/image__2_-removebg-preview (1).png" id="11_cxw37"]
 [ext_resource type="Texture2D" uid="uid://b7pev3r1ti2fe" path="res://Assets/ntxt.png" id="11_h2jb4"]
 [ext_resource type="Script" path="res://Scenes/EnergySystem.gd" id="13_ri4ul"]
+[ext_resource type="PackedScene" uid="uid://bglqykonx8wc3" path="res://Scenes/golem_enemy.tscn" id="13_vd4h8"]
 [ext_resource type="PackedScene" uid="uid://cqd1h721x2ol7" path="res://Scenes/shields.tscn" id="14_dn56p"]
+[ext_resource type="PackedScene" uid="uid://cxkw0re8a6ogs" path="res://Scenes/golem_arm.tscn" id="14_mc2yb"]
 [ext_resource type="PackedScene" uid="uid://bt75b57uf2hmr" path="res://Scenes/ui.tscn" id="14_y3jci"]
 
 [sub_resource type="Environment" id="Environment_x1ge0"]
@@ -656,6 +658,7 @@ zoom = Vector2(1.5, 1.5)
 
 [node name="TileMap" type="TileMap" parent="."]
 visible = false
+position = Vector2(-140, 77)
 tile_set = SubResource("TileSet_h3a5i")
 format = 2
 layer_0/name = "Background"
@@ -665,9 +668,10 @@ layer_1/tile_data = PackedInt32Array(-131083, 65536, 2, -589835, 65536, 2, -1310
 [node name="Player" parent="." instance=ExtResource("2_rqfep")]
 z_index = 5
 y_sort_enabled = true
-position = Vector2(-234, -68)
+position = Vector2(-374, 9)
 
 [node name="Colliders" type="Node2D" parent="."]
+position = Vector2(-140, 77)
 
 [node name="Area3" type="Area2D" parent="Colliders" groups=["Area3"]]
 script = ExtResource("3_xexkc")
@@ -695,12 +699,14 @@ position = Vector2(-387.5, -95.5)
 shape = SubResource("RectangleShape2D_r4gp2")
 
 [node name="Guns" type="Node2D" parent="."]
+position = Vector2(-140, 77)
 
 [node name="Gun" parent="Guns" instance=ExtResource("6_16d00")]
 position = Vector2(-478, -161)
 
 [node name="Ship" type="Node2D" parent="."]
 y_sort_enabled = true
+position = Vector2(-140, 77)
 
 [node name="SpaceShip" type="Sprite2D" parent="Ship"]
 y_sort_enabled = true
@@ -743,7 +749,11 @@ offset_right = -568.0
 offset_bottom = -324.0
 
 [node name="Shields" parent="." instance=ExtResource("14_dn56p")]
-position = Vector2(-41, -116)
+position = Vector2(-181, -39)
+
+[node name="GolemEnemy" parent="." instance=ExtResource("13_vd4h8")]
+position = Vector2(168, 0)
+projectile = ExtResource("14_mc2yb")
 
 [connection signal="currentAreaSignal" from="Player" to="Player" method="_on_current_area_signal"]
 [connection signal="currentAreaSignal" from="Player" to="Guns/Gun" method="_on_player_current_area_signal"]

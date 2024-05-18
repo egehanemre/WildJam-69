@@ -7,7 +7,7 @@ func _ready():
 	var tween = create_tween()
 	tween.set_ease(Tween.EASE_IN_OUT)
 	tween.tween_property($ShieldSprite, "scale", Vector2(0, 0), 0.1)
-	
+
 
 func _physics_process(delta):
 	if currentArea == 1:
@@ -24,7 +24,7 @@ func _physics_process(delta):
 		if shieldPower == 1:
 			var tween = create_tween()
 			tween.set_ease(Tween.EASE_IN_OUT)
-			tween.tween_property($ShieldSprite, "scale", Vector2(0.5, 0.), 0.1)
+			tween.tween_property($ShieldSprite, "scale", Vector2(0.5, 0.7), 0.1)
 
 		if shieldPower == 0:
 			var tween = create_tween()

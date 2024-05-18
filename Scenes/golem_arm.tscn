@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cxkw0re8a6ogs"]
+
+[ext_resource type="Script" path="res://Scenes/golem_arm.gd" id="1_80b1i"]
+[ext_resource type="Texture2D" uid="uid://co5omjo38sfd" path="res://Assets/Mecha-stone Golem 0.1/weapon PNG/arm_projectile.png" id="1_as435"]
+
+[node name="GolemArm" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_80b1i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(3, 3, 3, 1)
+position = Vector2(45, 12.6667)
+texture = ExtResource("1_as435")
+flip_h = true
