@@ -12,4 +12,5 @@ func _process(delta):
 	pass
 
 func on_timer_timeout():
-	pass
+	var iprojectile = projectile.instantiate()
+	

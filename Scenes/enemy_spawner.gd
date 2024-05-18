@@ -10,4 +10,4 @@ func _process(delta):
 	pass
 
 func on_timer_timeout():
-	print("spawn")
+	pass
