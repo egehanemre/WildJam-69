@@ -723,6 +723,7 @@ self_modulate = Color(5, 5, 5, 1)
 script = ExtResource("7_kqtkm")
 
 [node name="LeftShields" type="Node2D" parent="Shields"]
+script = ExtResource("7_kqtkm")
 
 [node name="ShieldLeft" type="Sprite2D" parent="Shields/LeftShields"]
 self_modulate = Color(2, 2, 2, 1)
@@ -761,6 +762,7 @@ position = Vector2(-31, -16)
 shape = SubResource("RectangleShape2D_q7726")
 
 [node name="RightShields" type="Node2D" parent="Shields"]
+script = ExtResource("7_kqtkm")
 
 [node name="ShieldRight" type="Sprite2D" parent="Shields/RightShields"]
 self_modulate = Color(2, 2, 2, 1)

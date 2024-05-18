@@ -5,7 +5,6 @@ extends CharacterBody2D
 var mousePosition
 var currentArea
 
-var shieldPower : int
 var laserPower : int
 
 func _physics_process(delta):
@@ -30,7 +29,6 @@ func _physics_process(delta):
 				tween.tween_property($Laser, "scale", Vector2(1, 1), 0.2)
 			if laserPower == 1:
 				tween.tween_property($Laser, "scale", Vector2(0.2, 1), 0.2)		
-			
 		else:
 			#$Laser.visible = false
 			$Laser/StaticBody2D/CollisionShape2D.disabled = true
@@ -48,6 +46,3 @@ func _on_player_current_area_signal(value):
 func _on_energy_system_current_laser(value):
 	laserPower = value
 
-
-func _on_energy_system_current_shield(value):
-	shieldPower = value
