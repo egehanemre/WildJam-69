@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dlr7su2l04iey"]
+[gd_scene load_steps=22 format=3 uid="uid://dlr7su2l04iey"]
 
 [ext_resource type="PackedScene" uid="uid://dmkj0c8f4s3nf" path="res://Scenes/background.tscn" id="1_7d0w7"]
 [ext_resource type="Texture2D" uid="uid://o03ppjyqhh73" path="res://Assets/The Platformer v1-0 Alpha.png" id="1_p72qs"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cqd1h721x2ol7" path="res://Scenes/shields.tscn" id="14_dn56p"]
 [ext_resource type="PackedScene" uid="uid://dsifrbfpldad5" path="res://GolemEnemy.tscn" id="14_dvnc5"]
 [ext_resource type="PackedScene" uid="uid://bt75b57uf2hmr" path="res://Scenes/ui.tscn" id="14_y3jci"]
+[ext_resource type="Script" path="res://Scenes/Timer.gd" id="15_7fhaq"]
 
 [sub_resource type="Environment" id="Environment_x1ge0"]
 background_mode = 3
@@ -754,6 +755,9 @@ script = ExtResource("13_r7nps")
 visible = false
 
 [node name="Timer" type="Timer" parent="SpawnManager"]
+wait_time = 3.437
+autostart = true
+script = ExtResource("15_7fhaq")
 
 [connection signal="currentAreaSignal" from="Player" to="Player" method="_on_current_area_signal"]
 [connection signal="currentAreaSignal" from="Player" to="Guns/Gun" method="_on_player_current_area_signal"]
@@ -771,3 +775,5 @@ visible = false
 [connection signal="currentShield" from="EnergySystem" to="Guns/Gun" method="_on_energy_system_current_shield"]
 [connection signal="currentShield" from="EnergySystem" to="UI" method="_on_energy_system_current_shield"]
 [connection signal="currentShield" from="EnergySystem" to="Shields" method="_on_energy_system_current_shield"]
+[connection signal="timeout" from="SpawnManager/Timer" to="SpawnManager" method="_on_timer_timeout"]
+[connection signal="timeout" from="SpawnManager/Timer" to="SpawnManager/Timer" method="_on_timeout"]
