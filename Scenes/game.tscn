@@ -1,8 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://dlr7su2l04iey"]
+[gd_scene load_steps=23 format=3 uid="uid://dlr7su2l04iey"]
 
 [ext_resource type="PackedScene" uid="uid://dmkj0c8f4s3nf" path="res://Scenes/background.tscn" id="1_7d0w7"]
 [ext_resource type="Texture2D" uid="uid://o03ppjyqhh73" path="res://Assets/The Platformer v1-0 Alpha.png" id="1_p72qs"]
-[ext_resource type="PackedScene" uid="uid://dwhxo5n53ndkb" path="res://Scenes/enemy_spawner.tscn" id="1_x8s58"]
 [ext_resource type="PackedScene" uid="uid://ig14671lmijs" path="res://Scenes/player.tscn" id="2_rqfep"]
 [ext_resource type="PackedScene" uid="uid://d4ccm0l42x77y" path="res://Scenes/enemy_1.tscn" id="3_im65e"]
 [ext_resource type="Script" path="res://Scenes/Area3.gd" id="3_xexkc"]
@@ -642,9 +641,6 @@ size = Vector2(12, 30)
 
 [node name="Game" type="Node2D"]
 
-[node name="EnemySpawner" parent="." instance=ExtResource("1_x8s58")]
-position = Vector2(-295, -306)
-
 [node name="Background" type="Node2D" parent="."]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Background"]
@@ -662,8 +658,8 @@ modulate = Color(1, 1, 1, 0.0117647)
 position = Vector2(-230, -130)
 scale = Vector2(1.51095, 1.51095)
 
-[node name="Enemy1" parent="." instance=ExtResource("3_im65e")]
-position = Vector2(-452, -299)
+[node name="Enemy_test" parent="." instance=ExtResource("3_im65e")]
+position = Vector2(-396, -307)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-288, -164)
