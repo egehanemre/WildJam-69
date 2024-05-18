@@ -4,34 +4,25 @@ var currentArea : int
 var shieldPower : int
 
 func _ready():
-	$LeftShields/ShieldLeft.visible = false
-	$LeftShields/ShieldLeft2.visible = false
-	$LeftShields/ShieldLeft3.visible = false
-	$RightShields/ShieldRight.visible = false
-	$RightShields/ShieldRight2.visible = false
-	$RightShields/ShieldRight3.visible = false
+	$ShieldSprite.visible = false
 
 func _physics_process(delta):
-	
-	# Set the visibility based on shieldPower
-	if shieldPower == 3:
-		$LeftShields/ShieldLeft3.visible = true
-		$RightShields/ShieldRight3.visible = true
-	if shieldPower == 2:
-		$LeftShields/ShieldLeft2.visible = true
-		$RightShields/ShieldRight2.visible = true
-		
-		$LeftShields/ShieldLeft3.visible = false
-		$RightShields/ShieldRight3.visible = false
-	if shieldPower == 1:
-		$LeftShields/ShieldLeft.visible = true
-		$RightShields/ShieldRight.visible = true
-		
-		$LeftShields/ShieldLeft2.visible = false
-		$RightShields/ShieldRight2.visible = false
-	if shieldPower == 0:
-		$LeftShields/ShieldLeft.visible = false
-		$RightShields/ShieldRight.visible = false
+	print(shieldPower)
+	print(currentArea)
+	if currentArea == 1:
+		if shieldPower == 3:
+			$ShieldSprite.visible = true
+			
+		if shieldPower == 2:
+			$ShieldSprite.visible = true
+
+		if shieldPower == 1:
+			$ShieldSprite.visible = true
+
+		if shieldPower == 0:
+			$ShieldSprite.visible = false
+	else:
+		$ShieldSprite.visible = false		
 
 func _on_player_current_area_signal(value):
 	currentArea = value

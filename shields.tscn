@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqd1h721x2ol7"]
+
+[ext_resource type="Script" path="res://Scenes/Shields.gd" id="1_b4bvo"]
+[ext_resource type="Texture2D" uid="uid://ce6lkycbuagqm" path="res://Assets/Dimensional_Portal.png" id="2_vdbk4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1nagc"]
+size = Vector2(14, 30)
+
+[node name="Shields" type="Node2D"]
+script = ExtResource("1_b4bvo")
+
+[node name="ShieldSprite" type="Sprite2D" parent="."]
+self_modulate = Color(2, 2, 2, 1)
+position = Vector2(3, -1)
+scale = Vector2(1.77257, 6.5617)
+texture = ExtResource("2_vdbk4")
+offset = Vector2(31.245, 15.995)
+
+[node name="ShieldBody" type="StaticBody2D" parent="ShieldSprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShieldSprite/ShieldBody"]
+shape = SubResource("RectangleShape2D_1nagc")
