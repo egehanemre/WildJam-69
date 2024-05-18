@@ -3,7 +3,7 @@ extends Node2D
 var currentArea : int 
 
 func _physics_process(delta):
-	if currentArea == 2:
+	if currentArea == 1:
 		$Sprite2D.visible = true
 		$Sprite2D2.visible = true
 	else:

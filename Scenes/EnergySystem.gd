@@ -10,9 +10,11 @@ var laserPower : int = 3
 func _ready():
 	shieldPower = 0
 	laserPower = 3
+	emit_signal("currentShield", shieldPower)	
+	emit_signal("currentLaser", laserPower)	
 
 func _physics_process(delta):
-	if currentArea == 1:
+	if currentArea == 2:
 		EnergyManager()
 
 
@@ -24,8 +26,6 @@ func EnergyManager():
 		if shieldPower < 3:
 			shieldPower += 1
 			laserPower -= 1
-			print(shieldPower)
-			print(laserPower)
 			emit_signal("currentShield", shieldPower)	
 			emit_signal("currentLaser", laserPower)
 	
