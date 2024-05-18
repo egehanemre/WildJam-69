@@ -639,16 +639,16 @@ size = Vector2(33, 89)
 environment = SubResource("Environment_x1ge0")
 
 [node name="solidBG" type="ColorRect" parent="Background"]
-offset_left = -584.0
-offset_top = -334.0
-offset_right = 14.0
-offset_bottom = 11.0
+offset_left = -745.0
+offset_top = -427.0
+offset_right = 175.0
+offset_bottom = 104.0
 color = Color(0.112634, 0.0532078, 0.176094, 1)
 
 [node name="BG" parent="Background" instance=ExtResource("1_7d0w7")]
 modulate = Color(1, 1, 1, 0.0117647)
 position = Vector2(-230, -130)
-scale = Vector2(1.51095, 1.51095)
+scale = Vector2(3.47206, 3.47206)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-288, -164)
