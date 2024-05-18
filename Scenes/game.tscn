@@ -714,10 +714,6 @@ shape = SubResource("RectangleShape2D_r4gp2")
 [node name="Gun" parent="Guns" instance=ExtResource("6_16d00")]
 position = Vector2(-478, -161)
 
-[node name="Gun2" parent="Guns" instance=ExtResource("6_16d00")]
-position = Vector2(-479, -32)
-rotation = 3.14159
-
 [node name="Shields" type="Node2D" parent="."]
 self_modulate = Color(5, 5, 5, 1)
 script = ExtResource("7_kqtkm")
@@ -843,7 +839,6 @@ offset_bottom = -324.0
 
 [connection signal="currentAreaSignal" from="Player" to="Player" method="_on_current_area_signal"]
 [connection signal="currentAreaSignal" from="Player" to="Guns/Gun" method="_on_player_current_area_signal"]
-[connection signal="currentAreaSignal" from="Player" to="Guns/Gun2" method="_on_player_current_area_signal"]
 [connection signal="currentAreaSignal" from="Player" to="Shields" method="_on_player_current_area_signal"]
 [connection signal="currentAreaSignal" from="Player" to="Shields/LeftShields/ShieldLeft" method="_on_player_current_area_signal"]
 [connection signal="currentAreaSignal" from="Player" to="EnergySystem" method="_on_player_current_area_signal"]
