@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dlr7su2l04iey"]
+[gd_scene load_steps=19 format=3 uid="uid://dlr7su2l04iey"]
 
 [ext_resource type="PackedScene" uid="uid://dmkj0c8f4s3nf" path="res://Scenes/background.tscn" id="1_7d0w7"]
 [ext_resource type="Texture2D" uid="uid://o03ppjyqhh73" path="res://Assets/The Platformer v1-0 Alpha.png" id="1_p72qs"]
@@ -9,10 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://ckm40o382dx31" path="res://Scenes/gun.tscn" id="6_16d00"]
 [ext_resource type="Texture2D" uid="uid://bnuyeu6gy6exh" path="res://Assets/image__2_-removebg-preview (1).png" id="11_cxw37"]
 [ext_resource type="Texture2D" uid="uid://b7pev3r1ti2fe" path="res://Assets/ntxt.png" id="11_h2jb4"]
-[ext_resource type="Script" path="res://Scenes/SpawnManager.gd" id="13_r7nps"]
 [ext_resource type="Script" path="res://Scenes/EnergySystem.gd" id="13_ri4ul"]
 [ext_resource type="PackedScene" uid="uid://cqd1h721x2ol7" path="res://Scenes/shields.tscn" id="14_dn56p"]
-[ext_resource type="PackedScene" uid="uid://dsifrbfpldad5" path="res://GolemEnemy.tscn" id="14_dvnc5"]
 [ext_resource type="PackedScene" uid="uid://bt75b57uf2hmr" path="res://Scenes/ui.tscn" id="14_y3jci"]
 
 [sub_resource type="Environment" id="Environment_x1ge0"]
@@ -746,14 +744,6 @@ offset_bottom = -324.0
 
 [node name="Shields" parent="." instance=ExtResource("14_dn56p")]
 position = Vector2(-41, -116)
-
-[node name="SpawnManager" type="Node2D" parent="."]
-script = ExtResource("13_r7nps")
-
-[node name="GolemEnemy" parent="SpawnManager" instance=ExtResource("14_dvnc5")]
-visible = false
-
-[node name="Timer" type="Timer" parent="SpawnManager"]
 
 [connection signal="currentAreaSignal" from="Player" to="Player" method="_on_current_area_signal"]
 [connection signal="currentAreaSignal" from="Player" to="Guns/Gun" method="_on_player_current_area_signal"]
