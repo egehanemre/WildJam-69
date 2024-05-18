@@ -1,9 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://dlr7su2l04iey"]
+[gd_scene load_steps=19 format=3 uid="uid://dlr7su2l04iey"]
 
 [ext_resource type="PackedScene" uid="uid://dmkj0c8f4s3nf" path="res://Scenes/background.tscn" id="1_7d0w7"]
 [ext_resource type="Texture2D" uid="uid://o03ppjyqhh73" path="res://Assets/The Platformer v1-0 Alpha.png" id="1_p72qs"]
 [ext_resource type="PackedScene" uid="uid://ig14671lmijs" path="res://Scenes/player.tscn" id="2_rqfep"]
-[ext_resource type="PackedScene" uid="uid://d4ccm0l42x77y" path="res://Scenes/enemy_1.tscn" id="3_im65e"]
 [ext_resource type="Script" path="res://Scenes/Area3.gd" id="3_xexkc"]
 [ext_resource type="Script" path="res://Scenes/Area2.gd" id="4_1bbps"]
 [ext_resource type="Script" path="res://Scenes/Area1.gd" id="5_xnbyj"]
@@ -651,9 +650,6 @@ modulate = Color(1, 1, 1, 0.0117647)
 position = Vector2(-230, -130)
 scale = Vector2(1.51095, 1.51095)
 
-[node name="Enemy_test" parent="." instance=ExtResource("3_im65e")]
-position = Vector2(-396, -307)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-288, -164)
 zoom = Vector2(2, 2)
@@ -747,7 +743,7 @@ offset_right = -568.0
 offset_bottom = -324.0
 
 [node name="Shields" parent="." instance=ExtResource("14_dn56p")]
-position = Vector2(-41, -102)
+position = Vector2(-41, -116)
 
 [connection signal="currentAreaSignal" from="Player" to="Player" method="_on_current_area_signal"]
 [connection signal="currentAreaSignal" from="Player" to="Guns/Gun" method="_on_player_current_area_signal"]

@@ -4,25 +4,36 @@ var currentArea : int
 var shieldPower : int
 
 func _ready():
-	$ShieldSprite.visible = false
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_IN_OUT)
+	tween.tween_property($ShieldSprite, "scale", Vector2(0, 1), 0.1)
+	
 
 func _physics_process(delta):
-	print(shieldPower)
-	print(currentArea)
 	if currentArea == 1:
 		if shieldPower == 3:
-			$ShieldSprite.visible = true
+			var tween = create_tween()
+			tween.set_ease(Tween.EASE_IN_OUT)
+			tween.tween_property($ShieldSprite, "scale", Vector2(1.5, 1), 0.2)
 			
 		if shieldPower == 2:
-			$ShieldSprite.visible = true
+			var tween = create_tween()
+			tween.set_ease(Tween.EASE_IN_OUT)
+			tween.tween_property($ShieldSprite, "scale", Vector2(0.8, 1), 0.15)
 
 		if shieldPower == 1:
-			$ShieldSprite.visible = true
+			var tween = create_tween()
+			tween.set_ease(Tween.EASE_IN_OUT)
+			tween.tween_property($ShieldSprite, "scale", Vector2(0.5, 1), 0.1)
 
 		if shieldPower == 0:
-			$ShieldSprite.visible = false
+			var tween = create_tween()
+			tween.set_ease(Tween.EASE_IN_OUT)
+			tween.tween_property($ShieldSprite, "scale", Vector2(0, 1), 0.1)
 	else:
-		$ShieldSprite.visible = false		
+		var tween = create_tween()
+		tween.set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property($ShieldSprite, "scale", Vector2(0, 1), 0.1)	
 
 func _on_player_current_area_signal(value):
 	currentArea = value
