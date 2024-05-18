@@ -1,5 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dlr7su2l04iey"]
-
+[gd_scene load_steps=20 format=3 uid="uid://dlr7su2l04iey"]
 
 [ext_resource type="PackedScene" uid="uid://dmkj0c8f4s3nf" path="res://Scenes/background.tscn" id="1_7d0w7"]
 [ext_resource type="Texture2D" uid="uid://o03ppjyqhh73" path="res://Assets/The Platformer v1-0 Alpha.png" id="1_p72qs"]
