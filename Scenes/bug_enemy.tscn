@@ -105,5 +105,9 @@ emitting = false
 process_material = SubResource("ParticleProcessMaterial_ylqbb")
 lifetime = 0.2
 
+[node name="Zorluk" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
 [connection signal="area_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Sprite2D/Area2D" to="." method="_on_area_2d_area_exited"]
