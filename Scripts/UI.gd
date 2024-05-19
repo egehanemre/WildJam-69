@@ -30,7 +30,7 @@ func _on_shields_current_health(value):
 	healthPower = value
 	if healthPower < 1:
 		healthPower = 0
-		print("gameover")
+		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 
 
 func _on_gun_score_change(value):

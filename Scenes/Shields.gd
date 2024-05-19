@@ -57,7 +57,6 @@ func _on_area_2d_area_entered(area):
 		do_damage(30)
 
 func do_damage(dmg : int):
-	
 	if shieldPower != 0:
 		health -= dmg / shieldPower
 		emit_signal("currentHealth",health)
