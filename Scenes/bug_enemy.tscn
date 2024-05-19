@@ -60,7 +60,7 @@ animations = [{
 offsets = PackedFloat32Array(0, 0.590164, 1)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_nv4bb"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uwwya"]
 gradient = SubResource("Gradient_fko7h")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ylqbb"]
@@ -71,7 +71,7 @@ initial_velocity_max = 313.49
 gravity = Vector3(0, 98, 0)
 scale_min = 2.0
 scale_max = 5.0
-color_ramp = SubResource("GradientTexture1D_nv4bb")
+color_ramp = SubResource("GradientTexture1D_uwwya")
 turbulence_enabled = true
 turbulence_noise_strength = 5.0
 
