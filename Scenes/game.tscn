@@ -705,6 +705,7 @@ position = Vector2(-288, -164)
 zoom = Vector2(1.5, 1.5)
 
 [node name="TileMap" type="TileMap" parent="."]
+visible = false
 position = Vector2(-139, 89)
 tile_set = SubResource("TileSet_h3a5i")
 format = 2
