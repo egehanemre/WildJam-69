@@ -59,7 +59,7 @@ texture = ExtResource("2_rp07h")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_tnbr6")
-volume_db = -33.79
+volume_db = -16.925
 pitch_scale = 0.93
 
 [connection signal="area_entered" from="Laser/StaticBody2D" to="." method="_on_static_body_2d_area_entered"]
