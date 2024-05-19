@@ -112,8 +112,4 @@ position = Vector2(1, -12.5)
 shape = SubResource("RectangleShape2D_x4kkr")
 debug_color = Color(0, 0.596428, 0.720116, 0.42)
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
-autostart = true
-
 [connection signal="frame_changed" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_frame_changed"]

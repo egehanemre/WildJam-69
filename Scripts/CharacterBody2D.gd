@@ -2,19 +2,13 @@ extends CharacterBody2D
 
 signal currentAreaSignal(value)
 
-var SPEED : int = 100
+const SPEED : int = 100
 const GRAVITY : int = 900
 const JUMP_FORCE : int = 400
 
 @export var currentArea : int = 0
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
-
-func _ready():
-	$Timer.timeout.connect(on_timer_timeout)
-
-func on_timer_timeout():
-	SPEED = SPEED + 10
 
 func _physics_process(delta):
 	var direction = Input.get_axis("move_left","move_right")
