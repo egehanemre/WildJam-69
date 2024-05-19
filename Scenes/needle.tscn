@@ -8,7 +8,7 @@ size = Vector2(6, 30)
 [sub_resource type="QuadMesh" id="QuadMesh_pjjsf"]
 size = Vector2(5, 30)
 
-[node name="Needle" type="Node2D" groups=["projectile"]]
+[node name="Needle" type="Node2D" groups=["ignore", "projectile"]]
 script = ExtResource("1_eeetv")
 
 [node name="Area2D" type="Area2D" parent="." groups=["projectile"]]

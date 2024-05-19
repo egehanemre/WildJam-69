@@ -12,4 +12,7 @@ func _process(delta):
 	
 
 func _on_area_2d_area_entered(area):
+	var findbug = area.get_parent() as Node2D
+	if (findbug.is_in_group("ignore")):
+		return
 	queue_free()

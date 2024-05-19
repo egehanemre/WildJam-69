@@ -87,7 +87,7 @@ libraries = {
 }
 autoplay = "move"
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." groups=["ignore"]]
 self_modulate = Color(2, 2, 10, 1)
 position = Vector2(2, -14)
 sprite_frames = SubResource("SpriteFrames_glw6m")
