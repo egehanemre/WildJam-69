@@ -1,12 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwhxo5n53ndkb"]
+[gd_scene load_steps=2 format=3 uid="uid://dwhxo5n53ndkb"]
 
 [ext_resource type="Script" path="res://Scenes/enemy_spawner.gd" id="1_hwda2"]
-[ext_resource type="PackedScene" uid="uid://d4ccm0l42x77y" path="res://Scenes/enemy_1.tscn" id="2_y27t3"]
 
 [node name="EnemySpawner" type="Node2D"]
 position = Vector2(144, 63)
 script = ExtResource("1_hwda2")
-projectile_scene = ExtResource("2_y27t3")
 big_enemy = true
 
 [node name="SmallEnemy" type="Timer" parent="."]
