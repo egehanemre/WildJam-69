@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dlr7su2l04iey"]
+[gd_scene load_steps=31 format=3 uid="uid://dlr7su2l04iey"]
 
 [ext_resource type="PackedScene" uid="uid://dwhxo5n53ndkb" path="res://Scenes/enemy_spawner.tscn" id="1_3pcyb"]
 [ext_resource type="PackedScene" uid="uid://dmkj0c8f4s3nf" path="res://Scenes/background.tscn" id="1_7d0w7"]
@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Scenes/Area3.gd" id="3_xexkc"]
 [ext_resource type="PackedScene" uid="uid://yxdg1g7qs0pe" path="res://Scenes/needle.tscn" id="3_y1s8h"]
 [ext_resource type="Script" path="res://Scenes/Area2.gd" id="4_1bbps"]
-[ext_resource type="PackedScene" uid="uid://cnm7mrstf8lyh" path="res://Scenes/rain.tscn" id="4_20nd5"]
+[ext_resource type="PackedScene" path="res://Scenes/rain.tscn" id="4_20nd5"]
 [ext_resource type="Script" path="res://Scenes/Area1.gd" id="5_xnbyj"]
 [ext_resource type="PackedScene" uid="uid://ckm40o382dx31" path="res://Scenes/gun.tscn" id="6_16d00"]
 [ext_resource type="Texture2D" uid="uid://wncl7wudmep6" path="res://Assets/spaceshp.png" id="8_vhife"]
@@ -634,6 +634,9 @@ sources/0 = SubResource("TileSetAtlasSource_0bo2n")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xh5yx"]
 size = Vector2(20, 158)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tkdn"]
+size = Vector2(323, 20)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3te3u"]
 size = Vector2(47, 85.4261)
 
@@ -702,7 +705,6 @@ position = Vector2(-288, -164)
 zoom = Vector2(1.5, 1.5)
 
 [node name="TileMap" type="TileMap" parent="."]
-visible = false
 position = Vector2(-139, 89)
 tile_set = SubResource("TileSet_h3a5i")
 format = 2
@@ -715,6 +717,12 @@ position = Vector2(-127, -97)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Area2D"]
 shape = SubResource("RectangleShape2D_xh5yx")
+
+[node name="Area2D2" type="Area2D" parent="TileMap" groups=["shiptop"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Area2D2"]
+position = Vector2(-303.5, -161)
+shape = SubResource("RectangleShape2D_7tkdn")
 
 [node name="Player" parent="." instance=ExtResource("2_rqfep")]
 z_index = 5
@@ -756,6 +764,7 @@ position = Vector2(-140, 77)
 position = Vector2(-447, -148)
 
 [node name="Ship" type="Node2D" parent="."]
+visible = false
 self_modulate = Color(2, 2, 0, 1)
 y_sort_enabled = true
 position = Vector2(-132, 87)
@@ -822,6 +831,9 @@ position = Vector2(-181, -39)
 position = Vector2(168, 0)
 projectile = ExtResource("14_mc2yb")
 
+[node name="BugEnemy" parent="." instance=ExtResource("15_f8sgg")]
+position = Vector2(-418, -118)
+
 [connection signal="area_entered" from="TileMap/Area2D" to="Shields" method="_on_area_2d_area_entered"]
 [connection signal="currentAreaSignal" from="Player" to="Player" method="_on_current_area_signal"]
 [connection signal="currentAreaSignal" from="Player" to="Guns/Gun" method="_on_player_current_area_signal"]
@@ -836,6 +848,7 @@ projectile = ExtResource("14_mc2yb")
 [connection signal="currentLaser" from="EnergySystem" to="Guns/Gun" method="_on_energy_system_current_laser"]
 [connection signal="currentLaser" from="EnergySystem" to="UI" method="_on_energy_system_current_laser"]
 [connection signal="currentLaser" from="EnergySystem" to="Shields" method="_on_energy_system_current_laser"]
+[connection signal="currentLaser" from="EnergySystem" to="BugEnemy" method="_on_energy_system_current_laser"]
 [connection signal="currentShield" from="EnergySystem" to="Guns/Gun" method="_on_energy_system_current_shield"]
 [connection signal="currentShield" from="EnergySystem" to="UI" method="_on_energy_system_current_shield"]
 [connection signal="currentShield" from="EnergySystem" to="Shields" method="_on_energy_system_current_shield"]

@@ -28,6 +28,8 @@ func _physics_process(delta):
 			if laserPower == 1:
 				var tween = get_tree().create_tween()
 				tween.tween_property($Laser, "scale", Vector2(0.2, 1), 0.2)
+			if laserPower == 0:
+				$Laser/StaticBody2D/CollisionShape2D.disabled = true
 		else:
 			#$Laser.visible = false
 			$Laser/StaticBody2D/CollisionShape2D.disabled = true
@@ -42,7 +44,6 @@ func _physics_process(delta):
 	#refing player.currentArea from "value" and assigning it to gun.currentArea
 func _on_player_current_area_signal(value):
 	currentArea = value
-
 
 func _on_energy_system_current_laser(value):
 	laserPower = value

@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://ckm40o382dx31"]
+[gd_scene load_steps=9 format=3 uid="uid://ckm40o382dx31"]
 
 [ext_resource type="Script" path="res://Scenes/gun.gd" id="1_h66fy"]
-[ext_resource type="Texture2D" uid="uid://ydk17talfnvc" path="res://Assets/Normal Portal.png" id="2_mhy8x"]
+[ext_resource type="Texture2D" uid="uid://kaylfrc3fk1h" path="res://Scenes/ntr.png" id="2_rp07h"]
 
 [sub_resource type="Animation" id="Animation_33oba"]
 resource_name = "Laser"
@@ -22,21 +22,6 @@ size = Vector2(5, 300)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o1bqc"]
 size = Vector2(149.844, 26.9654)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bl72k"]
-atlas = ExtResource("2_mhy8x")
-region = Rect2(4347, 0, 189, 90)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_31803"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bl72k")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_na313"]
 size = Vector2(32, 9)
 
@@ -55,20 +40,21 @@ position = Vector2(0, -152)
 scale = Vector2(1e-05, 1)
 mesh = SubResource("QuadMesh_s1241")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Laser"]
+[node name="StaticBody2D" type="Area2D" parent="Laser" groups=["laser"]]
 rotation = -1.5708
 scale = Vector2(1.93578, 0.2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Laser/StaticBody2D"]
 position = Vector2(2.56585, 1.51468)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_o1bqc")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -8)
-scale = Vector2(0.172222, 0.172222)
-sprite_frames = SubResource("SpriteFrames_31803")
-animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_na313")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_rp07h")
+
+[connection signal="area_entered" from="Laser/StaticBody2D" to="." method="_on_static_body_2d_area_entered"]

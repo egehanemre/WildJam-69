@@ -1,13 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://yxdg1g7qs0pe"]
+[gd_scene load_steps=4 format=3 uid="uid://yxdg1g7qs0pe"]
 
 [ext_resource type="Script" path="res://Scenes/needle.gd" id="1_eeetv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q8ql8"]
+size = Vector2(6, 30)
 
 [sub_resource type="QuadMesh" id="QuadMesh_pjjsf"]
 size = Vector2(5, 30)
 
-[node name="Needle" type="Node2D"]
+[node name="Needle" type="Node2D" groups=["projectile"]]
 script = ExtResource("1_eeetv")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["projectile"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_q8ql8")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Area2D"]
 self_modulate = Color(3, 1, 3, 1)
 mesh = SubResource("QuadMesh_pjjsf")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

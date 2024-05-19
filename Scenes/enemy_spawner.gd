@@ -18,7 +18,6 @@ func on_small_timer_timeout():
 	if big_enemy == true:
 		return
 		
-	print('small')
 	var random_direction = Vector2.LEFT.rotated(randf_range(0, PI))
 	var spawn_position = global_position + (random_direction * radius)
 	
@@ -30,7 +29,6 @@ func on_big_timer_timeout():
 	if big_enemy == false:
 		return
 	
-	print('big')
 	var random_direction = Vector2.LEFT.rotated(randf_range(0, PI))
 	var spawn_position = global_position + (random_direction * radius)
 	
