@@ -15,7 +15,7 @@ func _ready():
 	
 func _process(delta):
 	label.text = "ShieldPower: " + str(shieldPower)
-	label_2.text = "Laser Power:" + str(laserPower)
+	label_2.text = "Laser Power: " + str(laserPower)
 	label_3.text = "Health: " + str(healthPower)
 
 func _on_energy_system_current_laser(value):

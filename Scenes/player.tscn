@@ -95,7 +95,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x4kkr"]
-size = Vector2(11, 25)
+size = Vector2(11, 27)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_deaep")
@@ -108,7 +108,7 @@ frame = 5
 frame_progress = 0.0838834
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
-position = Vector2(1, -13.5)
+position = Vector2(1, -12.5)
 shape = SubResource("RectangleShape2D_x4kkr")
 debug_color = Color(0, 0.596428, 0.720116, 0.42)
 

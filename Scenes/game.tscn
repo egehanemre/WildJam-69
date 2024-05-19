@@ -719,7 +719,7 @@ shape = SubResource("RectangleShape2D_xh5yx")
 [node name="Player" parent="." instance=ExtResource("2_rqfep")]
 z_index = 5
 y_sort_enabled = true
-position = Vector2(-374, 9)
+position = Vector2(-374, 37)
 
 [node name="Colliders" type="Node2D" parent="."]
 position = Vector2(-140, 77)
@@ -810,10 +810,10 @@ texture = ExtResource("11_h2jb4")
 script = ExtResource("13_ri4ul")
 
 [node name="UI" parent="." instance=ExtResource("14_y3jci")]
-offset_left = -568.0
-offset_top = -324.0
-offset_right = -568.0
-offset_bottom = -324.0
+offset_left = -663.0
+offset_top = -376.0
+offset_right = -663.0
+offset_bottom = -376.0
 
 [node name="Shields" parent="." instance=ExtResource("14_dn56p")]
 position = Vector2(-181, -39)
