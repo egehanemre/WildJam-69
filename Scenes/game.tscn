@@ -7,12 +7,12 @@
 [ext_resource type="Script" path="res://Scenes/Area2.gd" id="4_1bbps"]
 [ext_resource type="Script" path="res://Scenes/Area1.gd" id="5_xnbyj"]
 [ext_resource type="PackedScene" uid="uid://ckm40o382dx31" path="res://Scenes/gun.tscn" id="6_16d00"]
-[ext_resource type="Texture2D" uid="uid://bnuyeu6gy6exh" path="res://Assets/image__2_-removebg-preview (1).png" id="11_cxw37"]
+[ext_resource type="Texture2D" uid="uid://wncl7wudmep6" path="res://Assets/spaceshp.png" id="8_vhife"]
 [ext_resource type="Texture2D" uid="uid://b7pev3r1ti2fe" path="res://Assets/ntxt.png" id="11_h2jb4"]
 [ext_resource type="Script" path="res://Scenes/EnergySystem.gd" id="13_ri4ul"]
-[ext_resource type="PackedScene" uid="uid://bglqykonx8wc3" path="res://Scenes/golem_enemy.tscn" id="13_vd4h8"]
+[ext_resource type="PackedScene" path="res://Scenes/golem_enemy.tscn" id="13_vd4h8"]
 [ext_resource type="PackedScene" uid="uid://cqd1h721x2ol7" path="res://Scenes/shields.tscn" id="14_dn56p"]
-[ext_resource type="PackedScene" uid="uid://cxkw0re8a6ogs" path="res://Scenes/golem_arm.tscn" id="14_mc2yb"]
+[ext_resource type="PackedScene" path="res://Scenes/golem_arm.tscn" id="14_mc2yb"]
 [ext_resource type="PackedScene" uid="uid://bt75b57uf2hmr" path="res://Scenes/ui.tscn" id="14_y3jci"]
 
 [sub_resource type="Environment" id="Environment_x1ge0"]
@@ -619,6 +619,9 @@ texture = ExtResource("1_p72qs")
 18:9/0 = 0
 18:9/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 18:9/0/physics_layer_0/angular_velocity = 0.0
+4:1/0 = 0
+4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:1/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_h3a5i"]
 physics_layer_0/collision_layer = 1
@@ -663,7 +666,7 @@ tile_set = SubResource("TileSet_h3a5i")
 format = 2
 layer_0/name = "Background"
 layer_1/name = "ForeGround"
-layer_1/tile_data = PackedInt32Array(-131083, 65536, 2, -589835, 65536, 2, -131098, 65536, 2, -131099, 65536, 2, -131097, 65536, 2, -131096, 65536, 2, -131095, 65536, 2, -131094, 65536, 2, -131093, 65536, 2, -131092, 65536, 2, -131091, 65536, 2, -131090, 65536, 2, -131089, 65536, 2, -131088, 65536, 2, -131087, 65536, 2, -131086, 65536, 2, -131085, 65536, 2, -131084, 65536, 2, -131101, 65536, 2, -131100, 65536, 2, -589853, 65536, 2, -589841, 65536, 2, -589847, 65536, 2, -589852, 65536, 2, -589851, 65536, 2, -589850, 65536, 2, -589849, 65536, 2, -589848, 65536, 2, -589846, 65536, 2, -589845, 65536, 2, -589844, 65536, 2, -589843, 65536, 2, -589842, 65536, 2, -589840, 65536, 2, -589839, 65536, 2, -589838, 65536, 2, -589837, 65536, 2, -589836, 65536, 2, -589854, 65536, 2, -589855, 65536, 2, -589856, 65536, 2, -131103, 65536, 2, -131102, 65536, 2, -589834, 65536, 2, -589833, 65536, 2, -524297, 65536, 2, -458761, 65536, 2, -393225, 65536, 2, -327689, 65536, 2, -262153, 65536, 2, -196617, 65536, 2, -131081, 65536, 2, -65545, 65536, 2, -131082, 65536, 2, -655392, 65536, 2, -655369, 65536, 2, -65568, 65536, 2, -131104, 65536, 2, -196640, 65536, 2, -262176, 65536, 2, -327712, 65536, 2, -393248, 65536, 2, -458784, 65536, 2, -524320, 65536, 2)
+layer_1/tile_data = PackedInt32Array(-131083, 65536, 2, -589835, 65536, 2, -131098, 65536, 2, -131099, 65536, 2, -131097, 65536, 2, -131096, 65536, 2, -131095, 65536, 2, -131094, 65536, 2, -131093, 65536, 2, -131092, 65536, 2, -131091, 65536, 2, -131090, 65536, 2, -131089, 65536, 2, -131088, 65536, 2, -131087, 65536, 2, -131086, 65536, 2, -131085, 65536, 2, -131084, 65536, 2, -131101, 65536, 2, -131100, 65536, 2, -589853, 65536, 2, -589841, 65536, 2, -589847, 65536, 2, -589852, 65536, 2, -589851, 65536, 2, -589850, 65536, 2, -589849, 65536, 2, -589848, 65536, 2, -589846, 65536, 2, -589845, 65536, 2, -589844, 65536, 2, -589843, 65536, 2, -589842, 65536, 2, -589840, 65536, 2, -589839, 65536, 2, -589838, 65536, 2, -589837, 65536, 2, -589836, 65536, 2, -589854, 65536, 2, -131103, 65536, 2, -131102, 65536, 2, -589834, 65536, 2, -589833, 65536, 2, -524297, 65536, 2, -458761, 65536, 2, -393225, 65536, 2, -327689, 65536, 2, -262153, 65536, 2, -196617, 65536, 2, -131081, 65536, 2, -65545, 65536, 2, -131082, 65536, 2, -655369, 65536, 2, -65568, 65536, 2, -131104, 65536, 2, -196640, 65536, 2, -262176, 65536, 2, -327712, 65536, 2, -393248, 65536, 2, -458784, 65536, 2, -524320, 65536, 2, -655390, 65536, 2)
 
 [node name="Player" parent="." instance=ExtResource("2_rqfep")]
 z_index = 5
@@ -702,7 +705,7 @@ shape = SubResource("RectangleShape2D_r4gp2")
 position = Vector2(-140, 77)
 
 [node name="Gun" parent="Guns" instance=ExtResource("6_16d00")]
-position = Vector2(-478, -161)
+position = Vector2(-447, -160)
 
 [node name="Ship" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -711,9 +714,9 @@ position = Vector2(-140, 77)
 [node name="SpaceShip" type="Sprite2D" parent="Ship"]
 y_sort_enabled = true
 texture_filter = 1
-position = Vector2(-319, -138)
-scale = Vector2(0.69, 0.69)
-texture = ExtResource("11_cxw37")
+position = Vector2(-299, -104)
+scale = Vector2(0.495, 0.495)
+texture = ExtResource("8_vhife")
 
 [node name="Room" type="Sprite2D" parent="Ship"]
 light_mask = 4
