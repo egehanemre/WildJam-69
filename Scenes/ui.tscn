@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bt75b57uf2hmr"]
+[gd_scene load_steps=5 format=3 uid="uid://bt75b57uf2hmr"]
 
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="1_me8vj"]
 
@@ -8,6 +8,9 @@ font_color = Color(0, 1, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_kb0k3"]
 font_color = Color(1, 0, 0, 1)
 outline_color = Color(0.988235, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ksych"]
+font_color = Color(1, 1, 0, 1)
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -40,3 +43,11 @@ offset_top = 38.0
 offset_right = 104.0
 offset_bottom = 61.0
 text = "Health: "
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_top = 56.2741
+offset_right = 104.0
+offset_bottom = 79.2741
+text = "Score: "
+label_settings = SubResource("LabelSettings_ksych")

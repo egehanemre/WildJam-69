@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal scoreChange(value)
+
 @onready var main = get_tree().get_root().get_node("Game")
 
 var mousePosition
@@ -47,4 +49,8 @@ func _on_player_current_area_signal(value):
 
 func _on_energy_system_current_laser(value):
 	laserPower = value
+
+func _on_static_body_2d_area_entered(area):
+	if area.is_in_group("projectile"):
+		emit_signal("scoreChange", 1)
 

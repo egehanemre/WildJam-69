@@ -705,6 +705,7 @@ position = Vector2(-288, -164)
 zoom = Vector2(1.5, 1.5)
 
 [node name="TileMap" type="TileMap" parent="."]
+visible = false
 position = Vector2(-139, 89)
 tile_set = SubResource("TileSet_h3a5i")
 format = 2
@@ -764,7 +765,6 @@ position = Vector2(-140, 77)
 position = Vector2(-447, -148)
 
 [node name="Ship" type="Node2D" parent="."]
-visible = false
 self_modulate = Color(2, 2, 0, 1)
 y_sort_enabled = true
 position = Vector2(-132, 87)
@@ -831,9 +831,6 @@ position = Vector2(-181, -39)
 position = Vector2(168, 0)
 projectile = ExtResource("14_mc2yb")
 
-[node name="BugEnemy" parent="." instance=ExtResource("15_f8sgg")]
-position = Vector2(-418, -118)
-
 [connection signal="area_entered" from="TileMap/Area2D" to="Shields" method="_on_area_2d_area_entered"]
 [connection signal="currentAreaSignal" from="Player" to="Player" method="_on_current_area_signal"]
 [connection signal="currentAreaSignal" from="Player" to="Guns/Gun" method="_on_player_current_area_signal"]
@@ -845,10 +842,10 @@ position = Vector2(-418, -118)
 [connection signal="body_exited" from="Colliders/Area2" to="Player" method="_on_area_2_body_exited"]
 [connection signal="body_entered" from="Colliders/Area1" to="Player" method="_on_area_1_body_entered"]
 [connection signal="body_exited" from="Colliders/Area1" to="Player" method="_on_area_1_body_exited"]
+[connection signal="scoreChange" from="Guns/Gun" to="UI" method="_on_gun_score_change"]
 [connection signal="currentLaser" from="EnergySystem" to="Guns/Gun" method="_on_energy_system_current_laser"]
 [connection signal="currentLaser" from="EnergySystem" to="UI" method="_on_energy_system_current_laser"]
 [connection signal="currentLaser" from="EnergySystem" to="Shields" method="_on_energy_system_current_laser"]
-[connection signal="currentLaser" from="EnergySystem" to="BugEnemy" method="_on_energy_system_current_laser"]
 [connection signal="currentShield" from="EnergySystem" to="Guns/Gun" method="_on_energy_system_current_shield"]
 [connection signal="currentShield" from="EnergySystem" to="UI" method="_on_energy_system_current_shield"]
 [connection signal="currentShield" from="EnergySystem" to="Shields" method="_on_energy_system_current_shield"]
