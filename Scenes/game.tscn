@@ -1,10 +1,13 @@
-[gd_scene load_steps=23 format=3 uid="uid://dlr7su2l04iey"]
+[gd_scene load_steps=30 format=3 uid="uid://dlr7su2l04iey"]
 
+[ext_resource type="PackedScene" uid="uid://dwhxo5n53ndkb" path="res://Scenes/enemy_spawner.tscn" id="1_3pcyb"]
 [ext_resource type="PackedScene" uid="uid://dmkj0c8f4s3nf" path="res://Scenes/background.tscn" id="1_7d0w7"]
 [ext_resource type="Texture2D" uid="uid://o03ppjyqhh73" path="res://Assets/The Platformer v1-0 Alpha.png" id="1_p72qs"]
 [ext_resource type="PackedScene" uid="uid://ig14671lmijs" path="res://Scenes/player.tscn" id="2_rqfep"]
 [ext_resource type="Script" path="res://Scenes/Area3.gd" id="3_xexkc"]
+[ext_resource type="PackedScene" uid="uid://yxdg1g7qs0pe" path="res://Scenes/needle.tscn" id="3_y1s8h"]
 [ext_resource type="Script" path="res://Scenes/Area2.gd" id="4_1bbps"]
+[ext_resource type="PackedScene" uid="uid://cnm7mrstf8lyh" path="res://Scenes/rain.tscn" id="4_20nd5"]
 [ext_resource type="Script" path="res://Scenes/Area1.gd" id="5_xnbyj"]
 [ext_resource type="PackedScene" uid="uid://ckm40o382dx31" path="res://Scenes/gun.tscn" id="6_16d00"]
 [ext_resource type="Texture2D" uid="uid://wncl7wudmep6" path="res://Assets/spaceshp.png" id="8_vhife"]
@@ -14,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cqd1h721x2ol7" path="res://Scenes/shields.tscn" id="14_dn56p"]
 [ext_resource type="PackedScene" uid="uid://c4w8njgpgllrd" path="res://Scenes/golem_arm.tscn" id="14_mc2yb"]
 [ext_resource type="PackedScene" uid="uid://bt75b57uf2hmr" path="res://Scenes/ui.tscn" id="14_y3jci"]
-[ext_resource type="PackedScene" uid="uid://dyjfexp4gmv6h" path="res://Scenes/bug_enemy.tscn" id="15_f8sgg"]
+[ext_resource type="PackedScene" uid="uid://dybf1hiya6upa" path="res://Scenes/bug_enemy.tscn" id="15_f8sgg"]
 
 [sub_resource type="Environment" id="Environment_x1ge0"]
 background_mode = 3
@@ -640,7 +643,38 @@ size = Vector2(20.3716, 67)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4gp2"]
 size = Vector2(33, 89)
 
+[sub_resource type="Gradient" id="Gradient_4ysfa"]
+offsets = PackedFloat32Array(0, 0.590164, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_uwwya"]
+gradient = SubResource("Gradient_4ysfa")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_c6txt"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 133.71
+initial_velocity_max = 313.49
+gravity = Vector3(0, 98, 0)
+scale_min = 2.0
+scale_max = 5.0
+color_ramp = SubResource("GradientTexture1D_uwwya")
+turbulence_enabled = true
+turbulence_noise_strength = 5.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_0fme3"]
+size = Vector2(20, 30)
+
 [node name="Game" type="Node2D"]
+
+[node name="BigEnemy" parent="." instance=ExtResource("1_3pcyb")]
+position = Vector2(-470, -560)
+projectile_scene = ExtResource("15_f8sgg")
+
+[node name="ProjectileEnemy" parent="." instance=ExtResource("1_3pcyb")]
+position = Vector2(-469, -536)
+projectile_scene = ExtResource("3_y1s8h")
+big_enemy = false
 
 [node name="Background" type="Node2D" parent="."]
 
@@ -654,7 +688,11 @@ offset_right = 175.0
 offset_bottom = 104.0
 color = Color(0.112634, 0.0532078, 0.176094, 1)
 
+[node name="Rain" parent="Background" instance=ExtResource("4_20nd5")]
+position = Vector2(174, -164)
+
 [node name="BG" parent="Background" instance=ExtResource("1_7d0w7")]
+visible = false
 modulate = Color(1, 1, 1, 0.0117647)
 position = Vector2(-230, -130)
 scale = Vector2(3.47206, 3.47206)
@@ -664,7 +702,8 @@ position = Vector2(-288, -164)
 zoom = Vector2(1.5, 1.5)
 
 [node name="TileMap" type="TileMap" parent="."]
-position = Vector2(-140, 77)
+visible = false
+position = Vector2(-139, 89)
 tile_set = SubResource("TileSet_h3a5i")
 format = 2
 layer_0/name = "Background"
@@ -717,15 +756,31 @@ position = Vector2(-140, 77)
 position = Vector2(-447, -160)
 
 [node name="Ship" type="Node2D" parent="."]
+self_modulate = Color(2, 2, 0, 1)
 y_sort_enabled = true
-position = Vector2(-140, 77)
+position = Vector2(-132, 87)
 
 [node name="SpaceShip" type="Sprite2D" parent="Ship"]
+light_mask = 4
+visibility_layer = 4
 y_sort_enabled = true
-texture_filter = 1
-position = Vector2(-299, -104)
+position = Vector2(-299, -103)
 scale = Vector2(0.495, 0.495)
 texture = ExtResource("8_vhife")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Ship"]
+self_modulate = Color(4, 2, 2, 1)
+position = Vector2(-534, -102)
+process_material = SubResource("ParticleProcessMaterial_c6txt")
+lifetime = 0.2
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Ship"]
+self_modulate = Color(3, 2, 2, 1)
+light_mask = 4
+visibility_layer = 8
+position = Vector2(-534, -104)
+scale = Vector2(2.8, 2.42083)
+mesh = SubResource("QuadMesh_0fme3")
 
 [node name="Room" type="Sprite2D" parent="Ship"]
 light_mask = 4
@@ -766,9 +821,6 @@ position = Vector2(-181, -39)
 [node name="GolemEnemy" parent="." instance=ExtResource("13_vd4h8")]
 position = Vector2(168, 0)
 projectile = ExtResource("14_mc2yb")
-
-[node name="BugEnemy" parent="." instance=ExtResource("15_f8sgg")]
-position = Vector2(-306, -362)
 
 [connection signal="area_entered" from="TileMap/Area2D" to="Shields" method="_on_area_2d_area_entered"]
 [connection signal="currentAreaSignal" from="Player" to="Player" method="_on_current_area_signal"]
