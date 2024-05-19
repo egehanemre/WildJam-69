@@ -1,5 +1,7 @@
 extends Control
 
+signal scoreSend(value)
+
 var shieldPower : int
 var laserPower : int
 var healthPower : int = 100
@@ -30,6 +32,9 @@ func _on_shields_current_health(value):
 	healthPower = value
 	if healthPower < 1:
 		healthPower = 0
+		
+		Global.HighScore = score
+		
 		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 
 

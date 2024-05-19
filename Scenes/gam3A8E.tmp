@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dlr7su2l04iey"]
+[gd_scene load_steps=32 format=3 uid="uid://dlr7su2l04iey"]
 
 [ext_resource type="PackedScene" uid="uid://dwhxo5n53ndkb" path="res://Scenes/enemy_spawner.tscn" id="1_3pcyb"]
 [ext_resource type="PackedScene" uid="uid://dmkj0c8f4s3nf" path="res://Scenes/background.tscn" id="1_7d0w7"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://c4w8njgpgllrd" path="res://Scenes/golem_arm.tscn" id="14_mc2yb"]
 [ext_resource type="PackedScene" uid="uid://bt75b57uf2hmr" path="res://Scenes/ui.tscn" id="14_y3jci"]
 [ext_resource type="PackedScene" uid="uid://dybf1hiya6upa" path="res://Scenes/bug_enemy.tscn" id="15_f8sgg"]
+[ext_resource type="PackedScene" uid="uid://bqbfaq5ysiynd" path="res://Scenes/game_over.tscn" id="19_0dksn"]
 
 [sub_resource type="Environment" id="Environment_x1ge0"]
 background_mode = 3
@@ -834,6 +835,9 @@ projectile = ExtResource("14_mc2yb")
 [node name="BugEnemy" parent="." instance=ExtResource("15_f8sgg")]
 position = Vector2(-300, -463)
 
+[node name="GameOver" parent="." instance=ExtResource("19_0dksn")]
+visible = false
+
 [connection signal="area_entered" from="TileMap/Area2D" to="Shields" method="_on_area_2d_area_entered"]
 [connection signal="currentAreaSignal" from="Player" to="Player" method="_on_current_area_signal"]
 [connection signal="currentAreaSignal" from="Player" to="Guns/Gun" method="_on_player_current_area_signal"]
@@ -853,4 +857,5 @@ position = Vector2(-300, -463)
 [connection signal="currentShield" from="EnergySystem" to="Guns/Gun" method="_on_energy_system_current_shield"]
 [connection signal="currentShield" from="EnergySystem" to="UI" method="_on_energy_system_current_shield"]
 [connection signal="currentShield" from="EnergySystem" to="Shields" method="_on_energy_system_current_shield"]
+[connection signal="scoreSend" from="UI" to="GameOver" method="_on_ui_score_send"]
 [connection signal="currentHealth" from="Shields" to="UI" method="_on_shields_current_health"]

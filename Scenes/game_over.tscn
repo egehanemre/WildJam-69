@@ -59,7 +59,7 @@ offset_bottom = -130.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(4.15532, 4.15532)
-text = "SCORE: 298"
+text = "SCORE: 0"
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 2
