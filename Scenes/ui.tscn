@@ -25,6 +25,7 @@ offset_bottom = 42.0
 text = "Laser Power: "
 
 [node name="Label3" type="Label" parent="."]
+layout_mode = 0
 offset_top = 38.0
 offset_right = 104.0
 offset_bottom = 61.0
