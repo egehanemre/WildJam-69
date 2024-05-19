@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://Scenes/Area3.gd" id="3_xexkc"]
 [ext_resource type="PackedScene" uid="uid://yxdg1g7qs0pe" path="res://Scenes/needle.tscn" id="3_y1s8h"]
 [ext_resource type="Script" path="res://Scenes/Area2.gd" id="4_1bbps"]
-[ext_resource type="PackedScene" uid="uid://cnm7mrstf8lyh" path="res://Scenes/rain.tscn" id="4_20nd5"]
+[ext_resource type="PackedScene" path="res://Scenes/rain.tscn" id="4_20nd5"]
 [ext_resource type="Script" path="res://Scenes/Area1.gd" id="5_xnbyj"]
 [ext_resource type="PackedScene" uid="uid://ckm40o382dx31" path="res://Scenes/gun.tscn" id="6_16d00"]
 [ext_resource type="Texture2D" uid="uid://wncl7wudmep6" path="res://Assets/spaceshp.png" id="8_vhife"]

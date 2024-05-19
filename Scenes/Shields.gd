@@ -61,7 +61,6 @@ func do_damage(dmg : int):
 		health -= dmg / shieldPower
 		emit_signal("currentHealth",health)
 	if shieldPower == 3:
-		health -= dmg / shieldPower
 		emit_signal("currentHealth",health)	
 	else:
 		health -= 40	

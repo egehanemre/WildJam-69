@@ -37,8 +37,6 @@ func apply_damage(amount):
 
 func die():
 	queue_free()  
-	
-	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 
 func _on_energy_system_current_laser(value):
 	currentLaser = value
