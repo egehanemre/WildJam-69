@@ -1,0 +1,82 @@
+[gd_scene load_steps=9 format=3 uid="uid://dybf1hiya6upa"]
+
+[ext_resource type="Texture2D" uid="uid://db0omdtepou3k" path="res://Assets/Bugs.png" id="1_6jfl3"]
+[ext_resource type="Script" path="res://Scenes/bug_enemy.gd" id="1_f2x1i"]
+
+[sub_resource type="Animation" id="Animation_2k7ok"]
+resource_name = "move"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0499524, 0.0998097, 0.149762, 0.199169),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0174533, 0.0, 0.0174533, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_8kin3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pgu66"]
+_data = {
+"RESET": SubResource("Animation_8kin3"),
+"move": SubResource("Animation_2k7ok")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0hgb"]
+atlas = ExtResource("1_6jfl3")
+region = Rect2(0, 0, 90, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_glw6m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0hgb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Environment" id="Environment_c0flr"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 1.22
+glow_strength = 0.54
+glow_blend_mode = 1
+glow_hdr_threshold = 0.0
+
+[node name="BugEnemy" type="Node2D"]
+script = ExtResource("1_f2x1i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pgu66")
+}
+autoplay = "move"
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(2, 2, 10, 1)
+position = Vector2(2, -14)
+sprite_frames = SubResource("SpriteFrames_glw6m")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_c0flr")

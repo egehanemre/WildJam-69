@@ -10,9 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://wncl7wudmep6" path="res://Assets/spaceshp.png" id="8_vhife"]
 [ext_resource type="Texture2D" uid="uid://b7pev3r1ti2fe" path="res://Assets/ntxt.png" id="11_h2jb4"]
 [ext_resource type="Script" path="res://Scenes/EnergySystem.gd" id="13_ri4ul"]
-[ext_resource type="PackedScene" path="res://Scenes/golem_enemy.tscn" id="13_vd4h8"]
+[ext_resource type="PackedScene" uid="uid://bglqykonx8wc3" path="res://Scenes/golem_enemy.tscn" id="13_vd4h8"]
 [ext_resource type="PackedScene" uid="uid://cqd1h721x2ol7" path="res://Scenes/shields.tscn" id="14_dn56p"]
-[ext_resource type="PackedScene" path="res://Scenes/golem_arm.tscn" id="14_mc2yb"]
+[ext_resource type="PackedScene" uid="uid://cxkw0re8a6ogs" path="res://Scenes/golem_arm.tscn" id="14_mc2yb"]
 [ext_resource type="PackedScene" uid="uid://bt75b57uf2hmr" path="res://Scenes/ui.tscn" id="14_y3jci"]
 
 [sub_resource type="Environment" id="Environment_x1ge0"]
