@@ -3,6 +3,7 @@ extends CharacterBody2D
 signal scoreChange(value)
 
 @onready var main = get_tree().get_root().get_node("Game")
+@onready var audio_stream_player_2d = $AudioStreamPlayer2D
 
 var mousePosition
 var currentArea
@@ -17,6 +18,12 @@ func _physics_process(delta):
 				position.x += 1
 		if position.x > vel.x:	
 				position.x -= 1	
+		
+		if Input.is_action_just_pressed("use_laser"):
+			audio_stream_player_2d.play()		
+		if Input.is_action_just_released("use_laser"):	
+			audio_stream_player_2d.stop()		
+				
 		if Input.is_action_pressed("use_laser"):
 			#$Laser.visible = true
 			$Laser/StaticBody2D/CollisionShape2D.disabled = false
