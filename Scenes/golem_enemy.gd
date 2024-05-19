@@ -20,6 +20,7 @@ func on_timer_timeout():
 	await get_tree().create_timer(1.5).timeout
 	var arm = projectile.instantiate() as Node2D
 	get_parent().add_child(arm)
+	$AudioStreamPlayer2D.play()
 	arm.global_position = $Golem/Point.global_position
 	$Golem/Point/GPUParticles2D.emitting = true
 	await get_tree().create_timer(0.2).timeout

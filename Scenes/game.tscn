@@ -1,13 +1,14 @@
-[gd_scene load_steps=31 format=3 uid="uid://dlr7su2l04iey"]
+[gd_scene load_steps=33 format=3 uid="uid://dlr7su2l04iey"]
 
 [ext_resource type="PackedScene" uid="uid://dwhxo5n53ndkb" path="res://Scenes/enemy_spawner.tscn" id="1_3pcyb"]
 [ext_resource type="PackedScene" uid="uid://dmkj0c8f4s3nf" path="res://Scenes/background.tscn" id="1_7d0w7"]
+[ext_resource type="Script" path="res://Scenes/game.gd" id="1_ltmsf"]
 [ext_resource type="Texture2D" uid="uid://o03ppjyqhh73" path="res://Assets/The Platformer v1-0 Alpha.png" id="1_p72qs"]
 [ext_resource type="PackedScene" uid="uid://ig14671lmijs" path="res://Scenes/player.tscn" id="2_rqfep"]
 [ext_resource type="Script" path="res://Scenes/Area3.gd" id="3_xexkc"]
 [ext_resource type="PackedScene" uid="uid://yxdg1g7qs0pe" path="res://Scenes/needle.tscn" id="3_y1s8h"]
 [ext_resource type="Script" path="res://Scenes/Area2.gd" id="4_1bbps"]
-[ext_resource type="PackedScene" path="res://Scenes/rain.tscn" id="4_20nd5"]
+[ext_resource type="PackedScene" uid="uid://cnm7mrstf8lyh" path="res://Scenes/rain.tscn" id="4_20nd5"]
 [ext_resource type="Script" path="res://Scenes/Area1.gd" id="5_xnbyj"]
 [ext_resource type="PackedScene" uid="uid://ckm40o382dx31" path="res://Scenes/gun.tscn" id="6_16d00"]
 [ext_resource type="Texture2D" uid="uid://wncl7wudmep6" path="res://Assets/spaceshp.png" id="8_vhife"]
@@ -18,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://c4w8njgpgllrd" path="res://Scenes/golem_arm.tscn" id="14_mc2yb"]
 [ext_resource type="PackedScene" uid="uid://bt75b57uf2hmr" path="res://Scenes/ui.tscn" id="14_y3jci"]
 [ext_resource type="PackedScene" uid="uid://dybf1hiya6upa" path="res://Scenes/bug_enemy.tscn" id="15_f8sgg"]
+[ext_resource type="AudioStream" uid="uid://4p3twkwws3o1" path="res://SFX/bg.mp3" id="19_7lplm"]
 
 [sub_resource type="Environment" id="Environment_x1ge0"]
 background_mode = 3
@@ -669,6 +671,7 @@ turbulence_noise_strength = 5.0
 size = Vector2(20, 30)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_ltmsf")
 
 [node name="BigEnemy" parent="." instance=ExtResource("1_3pcyb")]
 position = Vector2(-470, -560)
@@ -831,8 +834,10 @@ position = Vector2(-181, -39)
 position = Vector2(168, 0)
 projectile = ExtResource("14_mc2yb")
 
-[node name="BugEnemy" parent="." instance=ExtResource("15_f8sgg")]
-position = Vector2(-476, -154)
+[node name="Background_music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_7lplm")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="area_entered" from="TileMap/Area2D" to="Shields" method="_on_area_2d_area_entered"]
 [connection signal="currentAreaSignal" from="Player" to="Player" method="_on_current_area_signal"]
@@ -849,7 +854,6 @@ position = Vector2(-476, -154)
 [connection signal="currentLaser" from="EnergySystem" to="Guns/Gun" method="_on_energy_system_current_laser"]
 [connection signal="currentLaser" from="EnergySystem" to="UI" method="_on_energy_system_current_laser"]
 [connection signal="currentLaser" from="EnergySystem" to="Shields" method="_on_energy_system_current_laser"]
-[connection signal="currentLaser" from="EnergySystem" to="BugEnemy" method="_on_energy_system_current_laser"]
 [connection signal="currentShield" from="EnergySystem" to="Guns/Gun" method="_on_energy_system_current_shield"]
 [connection signal="currentShield" from="EnergySystem" to="UI" method="_on_energy_system_current_shield"]
 [connection signal="currentShield" from="EnergySystem" to="Shields" method="_on_energy_system_current_shield"]
