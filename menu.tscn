@@ -25,7 +25,7 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Main" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -38,19 +38,59 @@ grow_vertical = 0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="Start" type="Button" parent="VBoxContainer"]
+[node name="Start" type="Button" parent="Main"]
 layout_mode = 2
 text = "Start"
 
-[node name="Options" type="Button" parent="VBoxContainer"]
+[node name="Options" type="Button" parent="Main"]
 layout_mode = 2
 text = "Options"
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="Quit" type="Button" parent="Main"]
 layout_mode = 2
 text = "Quit"
 
 [node name="Options" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 95.0
+offset_top = -94.0
+offset_right = 95.0
+offset_bottom = -94.0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Options"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = -33.0
+offset_right = 69.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Video" type="Button" parent="Options/VBoxContainer"]
+layout_mode = 2
+text = "Video
+"
+
+[node name="Audio" type="Button" parent="Options/VBoxContainer"]
+layout_mode = 2
+text = "Audio
+"
+
+[node name="BackFromOptions" type="Button" parent="Options/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="Video" type="Control" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -59,22 +99,114 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Options"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="HBoxContainer" type="HBoxContainer" parent="Video"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -549.0
+offset_top = 200.0
+offset_right = -438.0
+offset_bottom = 280.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Video" type="Button" parent="Options/VBoxContainer"]
+[node name="Labels" type="VBoxContainer" parent="Video/HBoxContainer"]
 layout_mode = 2
 
-[node name="Audio" type="Button" parent="Options/VBoxContainer"]
+[node name="FullScreen" type="Label" parent="Video/HBoxContainer/Labels"]
+layout_mode = 2
+text = "FullScreen"
+
+[node name="Vsync" type="Label" parent="Video/HBoxContainer/Labels"]
+layout_mode = 2
+text = "Vsync"
+
+[node name="checks" type="VBoxContainer" parent="Video/HBoxContainer"]
 layout_mode = 2
 
-[node name="BackFromOptions" type="Button" parent="Options"]
+[node name="FullScreen" type="CheckBox" parent="Video/HBoxContainer/checks"]
+layout_mode = 2
+
+[node name="Vsync" type="CheckBox" parent="Video/HBoxContainer/checks"]
+layout_mode = 2
+
+[node name="BackFromVideos" type="Button" parent="Video"]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+offset_left = 27.0
+offset_top = 591.0
+offset_right = 165.0
+offset_bottom = 622.0
 text = "Back"
 
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="Audio" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Audio"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -548.0
+offset_top = 186.0
+offset_right = -386.0
+offset_bottom = 236.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Labels" type="VBoxContainer" parent="Audio/HBoxContainer"]
+layout_mode = 2
+
+[node name="Master" type="Label" parent="Audio/HBoxContainer/Labels"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Master
+"
+
+[node name="Sliders" type="VBoxContainer" parent="Audio/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Master" type="HSlider" parent="Audio/HBoxContainer/Sliders"]
+layout_mode = 2
+size_flags_vertical = 3
+value = 100.0
+
+[node name="BackFromAudio" type="Button" parent="Audio"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -547.0
+offset_top = -57.0
+offset_right = -410.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Back"
+
+[connection signal="pressed" from="Main/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Main/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Main/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Options/VBoxContainer/Video" to="." method="_on_video_pressed"]
+[connection signal="pressed" from="Options/VBoxContainer/Audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="Options/VBoxContainer/BackFromOptions" to="." method="_on_back_from_options_pressed"]
+[connection signal="toggled" from="Video/HBoxContainer/checks/FullScreen" to="." method="_on_full_screen_toggled"]
+[connection signal="toggled" from="Video/HBoxContainer/checks/Vsync" to="." method="_on_vsync_toggled"]
+[connection signal="pressed" from="Video/BackFromVideos" to="." method="_on_back_from_videos_pressed"]
+[connection signal="value_changed" from="Audio/HBoxContainer/Sliders/Master" to="." method="_on_master_value_changed"]
+[connection signal="pressed" from="Audio/BackFromAudio" to="." method="_on_back_from_audio_pressed"]
