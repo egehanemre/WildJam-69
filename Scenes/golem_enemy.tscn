@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bglqykonx8wc3"]
+[gd_scene load_steps=20 format=3 uid="uid://bodvvsc0ce5h3"]
 
 [ext_resource type="Texture2D" uid="uid://4ryfc4vlgond" path="res://Assets/Mecha-stone Golem 0.1/PNG sheet/Character_sheet.png" id="1_2w7yu"]
 [ext_resource type="Script" path="res://Scenes/golem_enemy.gd" id="1_ub6u2"]

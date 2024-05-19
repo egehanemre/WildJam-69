@@ -23,3 +23,9 @@ offset_top = 19.0
 offset_right = 104.0
 offset_bottom = 42.0
 text = "Laser Power: "
+
+[node name="Label3" type="Label" parent="."]
+offset_top = 38.0
+offset_right = 104.0
+offset_bottom = 61.0
+text = "Health: "

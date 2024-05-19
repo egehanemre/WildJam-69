@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dlr7su2l04iey"]
+[gd_scene load_steps=23 format=3 uid="uid://dlr7su2l04iey"]
 
 [ext_resource type="PackedScene" uid="uid://dmkj0c8f4s3nf" path="res://Scenes/background.tscn" id="1_7d0w7"]
 [ext_resource type="Texture2D" uid="uid://o03ppjyqhh73" path="res://Assets/The Platformer v1-0 Alpha.png" id="1_p72qs"]
@@ -10,10 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://wncl7wudmep6" path="res://Assets/spaceshp.png" id="8_vhife"]
 [ext_resource type="Texture2D" uid="uid://b7pev3r1ti2fe" path="res://Assets/ntxt.png" id="11_h2jb4"]
 [ext_resource type="Script" path="res://Scenes/EnergySystem.gd" id="13_ri4ul"]
-[ext_resource type="PackedScene" uid="uid://bglqykonx8wc3" path="res://Scenes/golem_enemy.tscn" id="13_vd4h8"]
+[ext_resource type="PackedScene" uid="uid://bodvvsc0ce5h3" path="res://Scenes/golem_enemy.tscn" id="13_vd4h8"]
 [ext_resource type="PackedScene" uid="uid://cqd1h721x2ol7" path="res://Scenes/shields.tscn" id="14_dn56p"]
-[ext_resource type="PackedScene" uid="uid://cxkw0re8a6ogs" path="res://Scenes/golem_arm.tscn" id="14_mc2yb"]
+[ext_resource type="PackedScene" uid="uid://c4w8njgpgllrd" path="res://Scenes/golem_arm.tscn" id="14_mc2yb"]
 [ext_resource type="PackedScene" uid="uid://bt75b57uf2hmr" path="res://Scenes/ui.tscn" id="14_y3jci"]
+[ext_resource type="PackedScene" uid="uid://dyjfexp4gmv6h" path="res://Scenes/bug_enemy.tscn" id="15_f8sgg"]
 
 [sub_resource type="Environment" id="Environment_x1ge0"]
 background_mode = 3
@@ -627,6 +628,9 @@ texture = ExtResource("1_p72qs")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_0bo2n")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xh5yx"]
+size = Vector2(20, 158)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3te3u"]
 size = Vector2(47, 85.4261)
 
@@ -660,13 +664,18 @@ position = Vector2(-288, -164)
 zoom = Vector2(1.5, 1.5)
 
 [node name="TileMap" type="TileMap" parent="."]
-visible = false
 position = Vector2(-140, 77)
 tile_set = SubResource("TileSet_h3a5i")
 format = 2
 layer_0/name = "Background"
 layer_1/name = "ForeGround"
 layer_1/tile_data = PackedInt32Array(-131083, 65536, 2, -589835, 65536, 2, -131098, 65536, 2, -131099, 65536, 2, -131097, 65536, 2, -131096, 65536, 2, -131095, 65536, 2, -131094, 65536, 2, -131093, 65536, 2, -131092, 65536, 2, -131091, 65536, 2, -131090, 65536, 2, -131089, 65536, 2, -131088, 65536, 2, -131087, 65536, 2, -131086, 65536, 2, -131085, 65536, 2, -131084, 65536, 2, -131101, 65536, 2, -131100, 65536, 2, -589853, 65536, 2, -589841, 65536, 2, -589847, 65536, 2, -589852, 65536, 2, -589851, 65536, 2, -589850, 65536, 2, -589849, 65536, 2, -589848, 65536, 2, -589846, 65536, 2, -589845, 65536, 2, -589844, 65536, 2, -589843, 65536, 2, -589842, 65536, 2, -589840, 65536, 2, -589839, 65536, 2, -589838, 65536, 2, -589837, 65536, 2, -589836, 65536, 2, -589854, 65536, 2, -131103, 65536, 2, -131102, 65536, 2, -589834, 65536, 2, -589833, 65536, 2, -524297, 65536, 2, -458761, 65536, 2, -393225, 65536, 2, -327689, 65536, 2, -262153, 65536, 2, -196617, 65536, 2, -131081, 65536, 2, -65545, 65536, 2, -131082, 65536, 2, -655369, 65536, 2, -65568, 65536, 2, -131104, 65536, 2, -196640, 65536, 2, -262176, 65536, 2, -327712, 65536, 2, -393248, 65536, 2, -458784, 65536, 2, -524320, 65536, 2, -655390, 65536, 2)
+
+[node name="Area2D" type="Area2D" parent="TileMap" groups=["Ship"]]
+position = Vector2(-127, -97)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Area2D"]
+shape = SubResource("RectangleShape2D_xh5yx")
 
 [node name="Player" parent="." instance=ExtResource("2_rqfep")]
 z_index = 5
@@ -758,6 +767,10 @@ position = Vector2(-181, -39)
 position = Vector2(168, 0)
 projectile = ExtResource("14_mc2yb")
 
+[node name="BugEnemy" parent="." instance=ExtResource("15_f8sgg")]
+position = Vector2(-306, -362)
+
+[connection signal="area_entered" from="TileMap/Area2D" to="Shields" method="_on_area_2d_area_entered"]
 [connection signal="currentAreaSignal" from="Player" to="Player" method="_on_current_area_signal"]
 [connection signal="currentAreaSignal" from="Player" to="Guns/Gun" method="_on_player_current_area_signal"]
 [connection signal="currentAreaSignal" from="Player" to="EnergySystem" method="_on_player_current_area_signal"]
@@ -774,3 +787,4 @@ projectile = ExtResource("14_mc2yb")
 [connection signal="currentShield" from="EnergySystem" to="Guns/Gun" method="_on_energy_system_current_shield"]
 [connection signal="currentShield" from="EnergySystem" to="UI" method="_on_energy_system_current_shield"]
 [connection signal="currentShield" from="EnergySystem" to="Shields" method="_on_energy_system_current_shield"]
+[connection signal="currentHealth" from="Shields" to="UI" method="_on_shields_current_health"]

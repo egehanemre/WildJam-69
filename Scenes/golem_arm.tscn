@@ -1,14 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxkw0re8a6ogs"]
+[gd_scene load_steps=4 format=3 uid="uid://c4w8njgpgllrd"]
 
 [ext_resource type="Script" path="res://Scenes/golem_arm.gd" id="1_80b1i"]
 [ext_resource type="Texture2D" uid="uid://co5omjo38sfd" path="res://Assets/Mecha-stone Golem 0.1/weapon PNG/arm_projectile.png" id="1_as435"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8r4e2"]
+size = Vector2(4.33333, 14.6667)
 
 [node name="GolemArm" type="Node2D"]
 scale = Vector2(3, 3)
 script = ExtResource("1_80b1i")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["golem"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
 self_modulate = Color(3, 3, 3, 1)
 position = Vector2(45, 12.6667)
 texture = ExtResource("1_as435")
 flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.16667, -2.38419e-07)
+shape = SubResource("RectangleShape2D_8r4e2")

@@ -15,10 +15,13 @@ script = ExtResource("1_b4bvo")
 self_modulate = Color(1, 2, 1, 1)
 mesh = SubResource("QuadMesh_ul1t1")
 
-[node name="ShieldBody" type="StaticBody2D" parent="ShieldSprite"]
+[node name="ShieldBody" type="Area2D" parent="ShieldSprite" groups=["shield"]]
 position = Vector2(3, -1)
 scale = Vector2(1.77257, 6.5617)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ShieldSprite/ShieldBody"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShieldSprite/ShieldBody" groups=["shield"]]
 position = Vector2(-1.69246, 0.196176)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_1nagc")
+
+[connection signal="area_entered" from="ShieldSprite/ShieldBody" to="." method="_on_shield_body_area_entered"]
