@@ -731,7 +731,7 @@ shape = SubResource("RectangleShape2D_7tkdn")
 [node name="Player" parent="." instance=ExtResource("2_rqfep")]
 z_index = 5
 y_sort_enabled = true
-position = Vector2(-374, 37)
+position = Vector2(-309, 37)
 
 [node name="Colliders" type="Node2D" parent="."]
 position = Vector2(-140, 77)

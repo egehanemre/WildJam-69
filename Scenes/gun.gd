@@ -11,7 +11,6 @@ var currentArea
 var laserPower : int
 
 func _physics_process(delta):
-	print(currentArea)
 	
 	var vel : Vector2 = get_global_mouse_position() 
 	if currentArea == 3:
@@ -19,12 +18,6 @@ func _physics_process(delta):
 				position.x += 1
 		if position.x > vel.x:	
 				position.x -= 1	
-				
-		#if Input.is_action_just_pressed("use_laser"):
-			#audio_stream_player_2d.play()
-		#if Input.is_action_just_released("use_laser") or currentArea == 0:
-			#audio_stream_player_2d.stop()
-
 				
 		if Input.is_action_pressed("use_laser"):
 			#$Laser.visible = true
