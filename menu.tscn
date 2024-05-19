@@ -16,7 +16,7 @@ script = ExtResource("1_1dsoc")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-scale = Vector2(28.7616, 16.2479)
+scale = Vector2(29.8727, 17.0673)
 texture = ExtResource("2_1dosl")
 expand_mode = 2
 
