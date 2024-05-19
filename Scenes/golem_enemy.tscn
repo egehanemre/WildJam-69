@@ -149,5 +149,5 @@ amount = 20
 process_material = SubResource("ParticleProcessMaterial_m3kcc")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 16.0
 autostart = true

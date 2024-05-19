@@ -7,7 +7,7 @@ var damage_interval = 0.1  # Apply damage every 0.1 seconds
 var currentLaser = 3 # Default value, should be set via signal
 
 func _process(delta):
-	global_position.y += 5 * delta
+	global_position.y += 10 * delta
 	
 	if laser_inside:
 		damage_timer += delta
