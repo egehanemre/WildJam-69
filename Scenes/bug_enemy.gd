@@ -21,6 +21,9 @@ func _process(delta):
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("laser"):
 		laser_inside = true
+	if area.is_in_group("shiptop"):
+		get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
+		
 
 func _on_area_2d_area_exited(area):
 	if area.is_in_group("laser"):
@@ -33,7 +36,10 @@ func apply_damage(amount):
 		die()
 
 func die():
-	queue_free()  # Remove the bug from the scene
+	queue_free()  
+	
+	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 
 func _on_energy_system_current_laser(value):
 	currentLaser = value
+

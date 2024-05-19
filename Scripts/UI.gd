@@ -21,6 +21,8 @@ func _process(delta):
 	label_2.text = "Laser Power: " + str(laserPower)
 	label_3.text = "Health: " + str(healthPower)
 	label_4.text = "Score: " + str(score)
+	
+	Global.HighScore = score
 
 func _on_energy_system_current_laser(value):
 	laserPower = value
