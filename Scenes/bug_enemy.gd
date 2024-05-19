@@ -5,9 +5,16 @@ var laser_inside = false
 var damage_timer = 0.0
 var damage_interval = 0.1  # Apply damage every 0.1 seconds
 var currentLaser = 3 # Default value, should be set via signal
+var zorluk = 0
+
+func _ready():
+	$Zorluk.timeout.connect(on_timer_timeout)
+
+func on_timer_timeout():
+	zorluk = zorluk + 0.05
 
 func _process(delta):
-	global_position.y += 25 * delta
+	global_position.y += (25 * delta) + zorluk
 	
 	if laser_inside:
 		damage_timer += delta
