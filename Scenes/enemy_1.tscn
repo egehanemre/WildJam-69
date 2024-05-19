@@ -9,7 +9,6 @@ script = ExtResource("1_e51oe")
 projectile = ExtResource("2_wrhr6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(2.02718, 2.01722)
 texture = ExtResource("1_pywx1")
 
 [node name="Timer" type="Timer" parent="."]
