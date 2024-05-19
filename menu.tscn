@@ -42,6 +42,11 @@ size_flags_vertical = 0
 layout_mode = 2
 text = "Start"
 
+[node name="Tutorial" type="Button" parent="Main"]
+layout_mode = 2
+text = "Tutorial
+"
+
 [node name="Options" type="Button" parent="Main"]
 layout_mode = 2
 text = "Options"
@@ -200,6 +205,7 @@ grow_vertical = 0
 text = "Back"
 
 [connection signal="pressed" from="Main/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Main/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="Main/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Main/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Options/VBoxContainer/Video" to="." method="_on_video_pressed"]

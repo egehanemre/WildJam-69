@@ -72,3 +72,7 @@ func volume(bus_index, value):
 
 func _on_back_from_audio_pressed():
 	show_and_hide(options, audio)
+
+
+func _on_tutorial_pressed():
+	get_tree().change_scene_to_file("res://Scenes/tutorial.tscn")
