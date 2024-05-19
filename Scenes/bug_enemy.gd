@@ -4,11 +4,11 @@ var bugHealth : int = 100
 var laser_inside = false
 var damage_timer = 0.0
 var damage_interval = 0.1  # Apply damage every 0.1 seconds
-var currentLaser = 3  # Default value, should be set via signal
+var currentLaser = 3 # Default value, should be set via signal
 
 func _process(delta):
 	global_position.y += 5 * delta
-
+	
 	if laser_inside:
 		damage_timer += delta
 		if damage_timer >= damage_interval:

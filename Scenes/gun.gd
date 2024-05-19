@@ -52,5 +52,4 @@ func _on_energy_system_current_laser(value):
 
 func _on_static_body_2d_area_entered(area):
 	if area.is_in_group("projectile"):
-		emit_signal("scoreChange", 1)
-
+		emit_signal("scoreChange", 5)	

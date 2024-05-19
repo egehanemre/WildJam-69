@@ -35,6 +35,3 @@ func EnergyManager():
 			laserPower+= 1
 			emit_signal("currentShield", shieldPower)	
 			emit_signal("currentLaser", laserPower)	
-	
-
-	
